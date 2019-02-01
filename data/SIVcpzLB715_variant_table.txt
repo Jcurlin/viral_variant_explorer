@@ -1,0 +1,369 @@
+position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzLB715_Stock_virus_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2663_W3_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2663_W11_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2663_W19_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2663_W24_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2666_W3_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2666_W11_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2666_W19_variant_alleles.lofreq.txt	SIVcpzLB715_G1_J2666_W24_variant_alleles.lofreq.txt	SIVcpzLB715_G2_2275_W3_variant_alleles.lofreq.txt	SIVcpzLB715_G2_2275_W11_variant_alleles.lofreq.txt	SIVcpzLB715_G2_2275_W19_variant_alleles.lofreq.txt	SIVcpzLB715_G2_2275_W24_variant_alleles.lofreq.txt	SIVcpzLB715_G2_J2796_W2_variant_alleles.lofreq.txt	SIVcpzLB715_G2_J2796_W11_variant_alleles.lofreq.txt	SIVcpzLB715_G2_J2796_W19_variant_alleles.lofreq.txt	SIVcpzLB715_G2_J2796_W24_variant_alleles.lofreq.txt
+583	NA	NA	NA	NA	NA				0.08	0.07												
+623	NA	NA	NA	NA	NA			0.43	0.21	0.23												
+626	NA	NA	NA	NA	NA														0.33			
+630	NA	NA	NA	NA	NA		0.20					0.16			0.38			0.07				
+633	NA	NA	NA	NA	NA								0.28									
+635	NA	NA	NA	NA	NA		0.06					0.12										
+638	NA	NA	NA	NA	NA														0.18			
+653	NA	NA	NA	NA	NA							0.52										
+664	NA	NA	NA	NA	NA																0.06	0.07
+665	NA	NA	NA	NA	NA																0.06	0.07
+666	NA	NA	NA	NA	NA													0.05				
+743	NA	NA	NA	NA	NA													0.14				
+778	NA	NA	NA	NA	NA									0.06								
+850	gag	D	14	N	N						0.11							0.08				
+853	gag	D	15	N	N										0.33	0.46	0.62	0.72	0.35	0.51	0.36	0.20
+861	gag	E	17	E	S			0.09	0.33	0.30												
+885	gag	G	25	G	S					0.06												
+888	gag	K	26	K	S													0.09				
+899	gag	M	30	K	N													0.06				
+903	gag	M	31	I	N					0.07												
+913	gag	V	35	I	N				0.07	0.09												
+930	gag	E	40	E	S										0.11	0.31	0.44	0.61				
+955	gag	G	49	S	N			0.15														
+1151	gag	K	114	R	N										0.73	0.52	0.34	0.24	0.47	0.27	0.46	0.66
+1153	gag	E	115	K	N			0.08														
+1168	gag	A	120	T	N			0.06														
+1175	gag	D	122	G	N									0.16								
+1269	gag	V	153	V	S				0.13	0.31								0.09				
+1282	gag	E	158	K	N												0.07					
+1296	gag	S	162	S	S				0.14	0.23												
+1332	gag	E	174	E	S					0.06												
+1365	gag	L	185	L	S			0.09														
+1398	gag	Q	196	Q	S							0.07	0.12									
+1512	gag	A	234	A	S										0.26	0.48	0.68	0.75	0.29	0.45	0.16	0.12
+1575	gag	V	255	V	S					0.09												
+1577	gag	G	256	E	N			0.09														
+1581	gag	E	257	E	S			0.09					0.16									
+1690	gag	V	294	M	N							0.07										
+1697	gag	R	296	K	N				0.13	0.07												
+1707	gag	K	299	K	S			0.07	0.20	0.31												
+1770	gag	V	320	V	S									0.07								
+1794	gag	K	328	K	S			0.12														
+1803	gag	L	331	L	S					0.12												
+1805	gag	R	332	K	N									0.06								
+1883	gag	R	358	K	N			0.09														
+1920	gag	T	370	T	S										0.80	0.51	0.33	0.23	0.55	0.28	0.45	0.67
+1935	gag	R	375	R	S					0.07												
+1989	gag	E	393	E	S		0.06															
+2004	gag	R	398	R	S																0.06	
+2100	gag	G	430	G	S		0.08			0.07							0.09					0.06
+2118	gag	N	436	K	N		0.07															
+2133	gag	G	441	G	S						0.08											
+2208	gag	Q	466	Q	S				0.15	0.07												
+2224	gag	E	472	K	N			0.06	0.09													
+2241	gag	E	477	E	S																0.08	
+2244	gag	E	478	E	S		0.06			0.07				0.15								
+2304	gag	S	498	S	S																0.06	
+2376	pol	E	96	K	N				0.10													
+2392	pol	G	101	E	N																0.17	0.08
+2420	pol	G	110	G	S		0.08															
+2424	pol	G	112	R	N		0.06															
+2425	pol	G	112	E	N					0.07												
+2429	pol	G	113	G	S		0.12															
+2456	pol	N	122	K	N		0.06															
+2473	pol	C	128	Y	N			0.09									0.07					
+2476	pol	G	129	E	N					0.08							0.07					
+2482	pol	R	131	K	N		0.06															
+2492	pol	G	134	G	S		0.06															
+2502	pol	V	138	I	N			0.08														
+2517	pol	V	143	I	N																0.22	0.50
+2528	pol	I	146	M	N																0.20	0.40
+2531	pol	G	147	G	S														0.06		0.06	
+2533	pol	R	148	K	N			0.09	0.19	0.29			0.10									
+2586	pol	E	166	K	N			0.13	0.20	0.30			0.12									
+2665	pol	K	192	R	N				0.07	0.10												
+2708	pol	K	206	K	S				0.16	0.12		0.09			0.06	0.18						
+2721	pol	G	211	R	N														0.10			
+2727	pol	E	213	K	N			0.18									0.06	0.06				
+2765	pol	K	225	K	S									0.09								
+2783	pol	W	231	*	N									0.09								
+2785	pol	R	232	K	N			0.10														
+2818	pol	R	243	K	N			0.07														
+2826	pol	D	246	N	N													0.07				
+2873	pol	K	261	K	S						0.07											
+2892	pol	V	268	I	N			0.06														
+2931	pol	D	281	N	N					0.27												
+2934	pol	E	282	K	N				0.14	0.10		0.25	0.48	0.12			0.18	0.09				
+2937	pol	N	283	Y	N										0.12							
+2944	pol	R	285	K	N													0.08				
+2945	pol	R	285	R	S			0.06				0.08	0.11	0.14						0.06		
+2975	pol	V	295	V	S													0.07				
+2984	pol	E	298	E	S												0.06					
+3020	pol	P	310	P	S					0.20												
+3024	pol	G	312	R	N									0.15								
+3049	pol	F	320	C	N									0.15								
+3075	pol	E	329	K	N										0.28	0.39	0.61	0.84	0.24	0.41	0.44	0.55
+3092	pol	Q	334	Q	S			0.07						0.16				0.58				
+3126	pol	D	346	N	N													0.57				
+3156	pol	E	356	K	N														0.13	0.09		
+3158	pol	E	356	E	S														0.09			
+3177	pol	E	363	K	N			0.15	0.32	0.24												
+3182	pol	E	364	E	S										0.06							
+3189	pol	D	367	N	N										0.06						0.08	
+3202	pol	R	371	K	N			0.06														
+3206	pol	W	372	*	N					0.07												
+3257	pol	W	389	*	N					0.07												
+3260	pol	M	390	I	N					0.07												
+3320	pol	E	410	E	S										0.75	0.52	0.35	0.21	0.43	0.25	0.44	0.67
+3353	pol	V	421	V	S					0.08												
+3355	pol	G	422	E	N		0.06	0.12														
+3431	pol	K	447	K	S										0.14	0.19	0.22	0.19	0.34	0.44	0.28	0.13
+3446	pol	V	452	V	S										0.14	0.18	0.23	0.18	0.32	0.44	0.28	0.13
+3474	pol	E	462	K	N				0.11	0.30												
+3545	pol	L	485	L	S												0.07					
+3611	pol	K	507	K	S			0.12	0.06		0.06											
+3643	pol	R	518	K	N			0.06	0.13	0.08												
+3702	pol	E	538	K	N					0.12												
+3718	pol	W	543	*	N					0.12		0.12										
+3719	pol	W	543	*	N							0.12										
+3755	pol	K	555	K	S					0.12												
+3763	pol	W	558	*	N					0.12												
+3765	pol	E	559	K	N					0.12												
+3799	pol	W	570	*	N										0.07			0.11				
+3800	pol	W	570	*	N										0.07		0.10	0.15			0.06	
+3811	pol	W	574	*	N					0.08												
+3813	pol	E	575	K	N												0.08					
+3820	pol	V	577	G	N					0.12												
+3913	pol	R	608	K	N			0.08		0.07											0.07	
+3915	pol	D	609	N	N											0.15						
+3919	pol	T	610	I	N													0.42				
+3954	pol	G	622	R	N					0.07		0.16										
+3965	pol	K	625	K	S				0.06	0.12					0.11	0.18	0.24	0.19	0.35	0.39	0.25	0.10
+4031	pol	Q	647	Q	S			0.07														
+4061	pol	T	657	T	S					0.14												
+4110	pol	E	674	K	N										0.22							
+4137	pol	E	683	Q	N			0.07														
+4137	pol	E	683	K	N																0.18	0.09
+4159	pol	R	690	K	N		0.06															
+4174	pol	W	695	*	N		0.07															
+4192	pol	G	701	E	N				0.12	0.30												
+4206	pol	E	706	K	N												0.08	0.42				
+4209	pol	E	707	K	N																0.06	
+4235	pol	G	715	G	S			0.10														
+4240	pol	R	717	K	N			0.10														
+4243	pol	R	718	K	N									0.17		0.17						
+4260	pol	G	724	R	N		0.06					0.07										
+4306	pol	W	739	*	N					0.09												
+4353	pol	E	755	K	N				0.12	0.08												
+4385	pol	L	765	L	S			0.13														
+4388	pol	K	766	K	S					0.09												
+4390	pol	G	767	E	N			0.13														
+4393	pol	E	768	G	N											0.07						
+4395	pol	A	769	T	N				0.08													
+4413	pol	D	775	H	N				0.08													
+4479	pol	V	797	I	N					0.08												
+4496	pol	G	802	G	S			0.07	0.14	0.18												
+4538	pol	E	816	E	S										0.07							
+4625	pol	A	845	A	S				0.08	0.09												
+4712	pol	M	874	I	N			0.22	0.23	0.27												
+4719	pol	E	877	K	N					0.10												
+4727	pol	K	879	K	S			0.15	0.20	0.46							0.11	0.08				
+4749	pol	D	887	N	N			0.07														
+4815	pol	G	909	R	N											0.16						
+4820	pol	G	910	G	S					0.06												
+5106	vif	R	15	R	S										0.08							
+5111	vif	R	17	K	N					0.07												
+5204	vif	S	48	N	N										0.16	0.24	0.24	0.19	0.46	0.49	0.21	0.08
+5254	vif	V	65	I	N									0.08								
+5304	vif	L	81	L	S					0.08												
+5310	vif	H	83	H	S							0.07										
+5339	vif	R	93	K	N										0.19	0.30	0.21	0.15				
+5399	vif	N	113	S	N						0.06											
+5410	vif	E	117	K	N		0.06	0.16				0.06		0.08					0.08			
+5410	vif	E	117	Q	N			0.10														
+5424	vif	R	121	R	S		0.12	0.13	0.06													
+5484	vif	K	141	K	S					0.18				0.08								
+5518	vif	L	153	L	S			0.07														
+5566	vif	L	169	L	S								0.08									
+5591	vpr	A	4	A	S	0.39	0.27	0.13	0.42		0.29	0.19	0.17									
+5611	vpr	P	11	Q	N			0.06														
+5614	vpr	R	12	K	N				0.07													
+5616	vpr	E	13	K	N			0.11														
+5632	vpr	W	18	*	N					0.09				0.29								
+5633	vpr	W	18	*	N									0.08								
+5640	vpr	E	21	K	N			0.08														
+5649	vpr	E	24	K	N				0.07													
+5656	vpr	L	26	P	N										0.15	0.25	0.18	0.15	0.48	0.40	0.08	
+5661	vpr	Q	28	*	N									0.07								
+5664	vpr	E	29	K	N		0.07															
+5680	vpr	F	34	S	N				0.14	0.10												
+5688	vpr	Q	37	*	N			0.06	0.42	0.33												
+5704	vpr	L	42	S	N					0.09												
+5713	vpr	Y	45	C	N												0.06					
+5744	vpr	A	55	A	S					0.09												
+5782	vpr	L	68	P	N										0.82	0.77	0.82	0.85	0.55	0.62	0.92	0.97
+5803	vpr	G	75	D	N						0.14	0.06										
+5829	vpr	V	84	M	N														0.08			
+5853	vpr	S	92	P	N										0.73	0.48	0.38	0.24	0.41	0.26	0.46	0.68
+5860	vpr	R	94	K	N											0.10	0.10	0.12				
+6016	tat	G	57	R	N									0.06								
+6060	tat	E	71	E	S				0.08	0.08				0.09								
+6105	vpu	L	9	W	N				0.08													
+6122	vpu	E	15	K	N														0.09			
+6181	vpu	K	34	N	N			0.10	0.06													
+6183	vpu	R	35	K	N			0.11	0.39	0.45	0.06											
+6192	vpu	R	38	K	N				0.09	0.15		0.10						0.09				
+6207	vpu	I	43	T	N							0.40	0.72	0.44								
+6213	vpu	R	45	T	N										0.12	0.14	0.43	0.66	0.11	0.34	0.67	0.79
+6213	vpu	R	45	K	N			0.24	0.20	0.31		0.09	0.11	0.10								
+6225	vpu	R	49	K	N										0.21	0.24	0.20	0.14	0.44	0.41	0.12	0.08
+6250	vpu	S	57	S	S									0.17								
+6254	vpu	G	59	R	N					0.08												
+6255	vpu	G	59	E	N					0.07												
+6257	vpu	D	60	N	N							0.17										
+6266	vpu	E	63	Q	N									0.20	0.67	0.64	0.42	0.27	0.35	0.34	0.22	0.13
+6279	vpu	L	67	S	N									0.10								
+6291	vpu	S	71	N	N												0.08					
+6299	vpu	E	74	K	N														0.10			
+6310	vpu	L	77	L	S								0.12									
+6344	env	V	34	V	S											0.19						
+6381	env	E	47	K	N				0.08	0.10												
+6442	env	W	67	*	N							0.10										
+6571	env	W	110	*	N							0.09										
+6642	env	W	134	G	N					0.11				0.10	0.11	0.10	0.10	0.07	0.09	0.09	0.10	0.09
+6646	env	G	135	E	N						0.08								0.06		0.06	
+6663	env	E	141	Q	N													0.06				
+6667	env	W	142	*	N							0.09										
+6676	env	T	145	K	N										0.06		0.06					
+6679	env	R	146	K	N							0.09										
+6689	env	L	149	L	S					0.10							0.09					
+6691	env	R	150	K	N									0.16								
+6713	env	G	157	G	S										0.22	0.06						
+6723	env	D	161	N	N								0.07	0.11						0.06	0.11	0.08
+6725	env	D	161	E	N					0.08				0.09	0.08	0.08	0.07	0.07	0.08	0.12	0.13	0.07
+6728	env	K	162	K	S			0.07		0.17	0.07		0.06	0.23	0.12	0.13	0.12	0.07	0.12	0.15	0.16	0.12
+6762	env	D	174	N	N														0.08			
+6778	env	D	179	A	N			0.07		0.27				0.28	0.28	0.28	0.28	0.19	0.20	0.26	0.27	0.22
+6783	env	T	181	P	N					0.15				0.16	0.14	0.16	0.15	0.10	0.10	0.12	0.12	0.10
+6800	env	Q	186	Q	S					0.07												
+6816	env	A	192	T	N														0.06			
+6839	env	A	199	A	S															0.07	0.10	0.12
+6843	env	T	201	A	N																0.08	
+6849	env	V	203	I	N						0.07											
+6987	env	G	249	S	N					0.07												
+7042	env	R	267	K	N					0.08								0.10				
+7086	env	V	282	M	N					0.11								0.06				
+7167	env	D	309	N	N									0.16								
+7195	env	S	318	N	N									0.10								
+7241	env	G	333	G	S			0.10														
+7316	env	K	358	N	N				0.10													
+7317	env	I	359	V	N							0.11	0.11	0.19								
+7337	env	F	365	F	S					0.07												
+7351	env	R	370	K	N																0.07	
+7362	env	E	374	K	N															0.15	0.27	0.18
+7371	env	E	377	K	N		0.06	0.07		0.11												
+7392	env	V	384	I	N										0.17	0.18	0.25	0.19	0.30	0.42	0.13	0.07
+7427	env	E	395	E	S				0.08													
+7619	env	Q	459	Q	S			0.06		0.08												
+7627	env	G	462	E	N													0.13			0.15	0.07
+7635	env	I	465	V	N					0.08												
+7654	env	R	471	K	N													0.07				
+7694	env	L	484	L	S			0.06														
+7702	env	R	487	H	N				0.11	0.32												
+7712	env	N	490	N	S					0.21												
+7728	env	E	496	K	N									0.13			0.06					
+7809	env	E	523	K	N								0.08									
+7809	env	E	523	Q	N										0.10	0.28	0.34	0.50	0.17	0.32	0.62	0.76
+7816	env	R	525	K	N							0.17	0.39	0.19								
+7826	env	W	528	*	N			0.06														
+7828	env	R	529	K	N			0.06														
+7843	env	R	534	K	N												0.06					
+7856	env	V	538	V	S			0.14														
+7868	env	P	542	P	S								0.06									
+7905	env	V	555	I	N			0.10														
+7908	env	N	556	Y	N																0.19	0.47
+7914	env	E	558	K	N							0.10				0.09	0.16	0.38				
+7950	env	G	570	R	N					0.08												
+7951	env	G	570	E	N													0.15				
+7953	env	F	571	I	N										0.14	0.21	0.30	0.23	0.34	0.52	0.23	0.17
+7958	env	L	572	L	S					0.06		0.08										
+8001	env	T	587	A	N									0.21								
+8102	env	W	620	*	N					0.06												
+8139	env	E	633	K	N																0.06	
+8143	env	R	634	K	N												0.08					
+8158	env	Q	639	L	N										0.79	0.60	0.35	0.32	0.57	0.31	0.42	0.18
+8171	env	G	643	G	S				0.21	0.24												
+8184	env	S	648	P	N									0.13								
+8200	env	C	653	Y	N										0.09							
+8208	env	D	656	N	N			0.06	0.14													
+8211	env	V	657	I	N																	0.29
+8216	env	K	658	K	S			0.06														
+8218	env	W	659	*	N					0.13												
+8223	env	E	661	K	N				0.13	0.51				0.08							0.19	
+8252	env	E	670	E	S					0.39			0.11									
+8257	env	W	672	*	N								0.06									
+8279	env	Q	679	H	N												0.12					0.18
+8280	env	W	680	G	N												0.12					
+8296	env	R	685	K	N																	0.65
+8300	env	N	686	N	S										0.76	0.46	0.29	0.57		0.32	0.48	0.08
+8328	env	E	696	K	N																	0.76
+8330	env	E	696	D	N												0.17					
+8331	env	Q	697	K	N												0.18					
+8339	env	Q	699	Q	S									0.20								
+8364	env	S	708	G	N			0.06														
+8409	env	D	723	N	N			0.45	0.23	0.11		0.21	0.24	0.31								
+8426	env	L	728	L	S														0.15	0.27	0.48	0.70
+8450	env	M	736	I	N										0.71	0.49	0.35	0.24	0.50	0.28	0.30	0.21
+8454	env	V	738	I	N												0.06					
+8471	env	G	743	G	S										0.07	0.06						
+8473	env	C	744	Y	N				0.10	0.07												
+8476	env	R	745	K	N			0.17			0.13								0.13	0.30	0.52	0.70
+8481	env	V	747	I	N				0.07	0.09												
+8496	env	S	752	P	N								0.22									
+8524	env	Y	761	S	N		0.06															
+8528	env	S	762	S	S		0.10															
+8544	env	T	768	P	N		0.09															
+8551	env	F	770	S	N		0.17															
+8557	env	I	772	T	N		0.13															
+8561	env	P	773	P	S									0.07								
+8562	env	R	774	G	N		0.08															
+8592	env	E	784	K	N				0.08	0.06												
+8595	env	E	785	K	N												0.07				0.07	
+8606	env	E	788	E	S										0.10							
+8628	env	R	796	W	N								0.08	0.34								
+8640	env	G	800	W	N					0.22												
+8640	env	G	800	R	N				0.38	0.55		0.08		0.25	1.00	1.00	1.00	1.00	0.79	0.97	1.00	1.00
+8652	env	L	804	F	N														0.11			
+8717	env	L	825	L	S		0.06		0.13	0.14												
+8735	env	L	831	L	S																0.15	0.06
+8752	env	H	837	P	N		0.06															
+8763	env	G	841	R	N										0.10	0.20	0.31	0.47	0.46	0.28	0.53	0.60
+8764	env	G	841	E	N					0.12			0.10	0.08								
+8768	env	L	842	L	S										0.17	0.30	0.46	0.62	0.62	0.42	0.68	0.74
+8774	env	L	844	L	S																0.14	0.06
+8781	env	E	847	K	N		0.07												0.10			
+8802	env	G	854	S	N														0.10			
+8821	env	G	860	E	N								0.16									
+8825	env	R	861	R	S								0.07									
+8826	env	E	862	K	N				0.06													
+8858	env	D	872	D	S														0.18			
+8871	env	A	877	T	N														0.09			
+8886	env	T	882	A	N														0.09			
+8901	env	E	887	K	N									0.08								
+8915	env	R	891	R	S									0.06								
+8916	env	F	892	L	N					0.08												
+8959	env	G	906	E	N										0.13	0.18	0.21	0.15	0.20	0.36	0.09	0.06
+8968	env	R	909	I	N								0.15	0.11								
+9025	nef	E	15	K	N											0.09	0.08	0.16				
+9032	nef	R	17	K	N		0.06	0.08													0.06	
+9034	nef	E	18	K	N		0.09	0.19	0.09	0.12		0.14	0.23	0.22	0.12	0.10		0.08	0.06			
+9054	nef	Q	24	Q	S										0.16	0.18	0.23	0.17	0.47	0.38	0.10	0.06
+9073	nef	G	31	R	N					0.06												
+9079	nef	V	33	M	N				0.12	0.30								0.12				
+9086	nef	R	35	K	N						0.06											
+9088	nef	D	36	N	N										0.84	0.82	0.75	0.83	0.44	0.60	0.88	0.93
+9101	nef	H	40	L	N			0.07														
+9103	nef	G	41	R	N									0.06								
+9115	nef	V	45	I	N										0.06	0.13	0.16	0.14				
+9137	nef	N	52	S	N									0.09								
+9142	nef	T	54	P	N		0.19															
+9148	nef	A	56	T	N										0.16	0.18	0.24	0.16	0.47	0.39	0.10	0.06
+9157	nef	E	59	K	N														0.12			
+9160	nef	E	60	K	N				0.29	0.49				0.19					0.06			
+9169	nef	E	63	K	N							0.35	0.61	0.22		0.09	0.08	0.15				
+9172	nef	E	64	K	N					0.06									0.06			
+9175	nef	E	65	K	N								0.18									
+9348	nef	P	122	P	S					0.32												
+9442	nef	E	154	K	N									0.06								
