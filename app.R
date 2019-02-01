@@ -1,10 +1,11 @@
 ## app.R ##
+library(tidyverse)
 library(shiny)
 library(shinydashboard)
-library(stringr)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
+# library(stringr)
+# library(dplyr)
+# library(tidyr)
+# library(ggplot2)
 library(DT)
 library(broom)
 
@@ -129,7 +130,7 @@ ui <- dashboardPage(
                    "MB897" = "mb"), inline = TRUE)
     ),
     fluidRow(plotOutput("var_plot")),
-    fluidRow(column(dataTableOutput("var_table"), width=12))
+    fluidRow(column(dataTableOutput("var_table"), width=12, style = "font-size:80%"))
     
   ) # end dashboardBody
 )
@@ -259,11 +260,9 @@ server <- function(input, output) {
       data_table <- data_table[,c("variant_name", ordered_timepoint_names)]
       
       # create the data table object
-      dat <- datatable(data_table, 
+      dat <- DT::datatable(data_table, 
                        options = list(
                          autoWidth = TRUE,
-                         scrollX = "400px",
-                         contentPadding = 0,
                          pageLength = 50,
                          lengthMenu = c(10, 20, 50, 100, 200)
                          # columnDefs = list(list(width = '20px', targets = "_all" ))
