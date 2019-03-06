@@ -1,11 +1,10 @@
 ## app.R ##
-library(tidyverse)
 library(shiny)
 library(shinydashboard)
-# library(stringr)
-# library(dplyr)
-# library(tidyr)
-# library(ggplot2)
+library(stringr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 library(DT)
 library(broom)
 # library(ggnewscale)
@@ -332,15 +331,18 @@ server <- function(input, output) {
         data_to_plot <- rv$data %>% arrange(as.numeric(position))
         # ggplot(data=rv$data[!is.na(rv$data$frequency),], aes(x=plot_week, y= frequency, group=interaction(rep, position), color=rep)) +
         ggplot(data=data_to_plot, aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep)) +
-          geom_point() +
-          geom_line(linetype=2) + 
+          geom_point(shape=20) +
+          geom_line(linetype=3) + 
           geom_line(data=filter(data_to_plot, gen == 1)) + 
           geom_line(data=filter(data_to_plot, gen == 2)) +
           # geom_smooth() +
           # theme(legend.position="none", strip.text = element_text(size=12) ) +  #We don't want a giant legend with each position #
+          theme_classic() +
+          theme(text = element_text(size=8)) +
           # scale_y_log10() +
           # coord_fixed(ratio=20) + 
           facet_wrap(~variant_name) 
+          
       }
     }
     
@@ -390,7 +392,7 @@ server <- function(input, output) {
         device <- function(..., width, height) {
           grDevices::pdf(..., width = width, height = height)
         }
-        ggsave(file, plot = var_plot_function(), device = "pdf")
+        ggsave(file, plot = var_plot_function(), device = "pdf", dpi=300, height=4, width=7, units="in")
       })
     
     output$download_genome_plot <- downloadHandler(
@@ -399,7 +401,7 @@ server <- function(input, output) {
         device <- function(..., width, height) {
           grDevices::pdf(..., width = width, height = height)
         }
-        ggsave(file, plot = all_plot_function(), device = "pdf")
+        ggsave(file, plot = all_plot_function(), device = "pdf", dpi=300, height=4, width=7, units="in")
       })
  
 } # end server function
