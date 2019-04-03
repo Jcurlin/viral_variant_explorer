@@ -1,12 +1,63 @@
 position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant_alleles.lofreq.txt	SIVcpzMB897_Stock_virus_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2139_W1_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2139_W3_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2139_W19_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2139_W24_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2139_W27_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2143_W3_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2143_W9_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2143_W11_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2143_W24_variant_alleles.lofreq.txt	SIVcpzMB897_G1_2143_W27_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2263_W3_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2263_W11_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2263_W19_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2263_W24_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2264_W3_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2264_W11_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2264_W19_variant_alleles.lofreq.txt	SIVcpzMB897_G2_2264_W24_variant_alleles.lofreq.txt
-151	NA	NA	NA	NA	NA															0.12	0.11		0.16	0.46	0.52
-154	NA	NA	NA	NA	NA							0.05													
-159	NA	NA	NA	NA	NA			0.08																	
-192	NA	NA	NA	NA	NA					0.18	0.32	0.26				0.12	0.06	0.12	0.08					0.07	0.06
-197	NA	NA	NA	NA	NA														0.10						
-233	NA	NA	NA	NA	NA					0.12	0.08														
+33	NA	NA	NA	NA	NA								0.03												
+41	NA	NA	NA	NA	NA														0.01						
+44	NA	NA	NA	NA	NA								0.04												
+56	NA	NA	NA	NA	NA					0.02															
+57	NA	NA	NA	NA	NA													0.04							
+60	NA	NA	NA	NA	NA			0.01																	
+62	NA	NA	NA	NA	NA			0.01																	
+72	NA	NA	NA	NA	NA					0.04	0.02							0.04							
+75	NA	NA	NA	NA	NA									0.01											
+78	NA	NA	NA	NA	NA							0.03													
+80	NA	NA	NA	NA	NA			0.01			0.01														
+89	NA	NA	NA	NA	NA								0.01	0.02		0.03									
+97	NA	NA	NA	NA	NA								0.02												
+100	NA	NA	NA	NA	NA										0.01										
+109	NA	NA	NA	NA	NA						0.01														
+118	NA	NA	NA	NA	NA								0.04												
+129	NA	NA	NA	NA	NA								0.02		0.01										
+136	NA	NA	NA	NA	NA			0.01																	
+138	NA	NA	NA	NA	NA															0.01					
+142	NA	NA	NA	NA	NA																	0.02			
+143	NA	NA	NA	NA	NA							0.03													
+144	NA	NA	NA	NA	NA									0.01								0.01	0.01		
+145	NA	NA	NA	NA	NA							0.03													
+150	NA	NA	NA	NA	NA							0.02			0.02										
+151	NA	NA	NA	NA	NA										0.02			0.03	0.04	0.12	0.11	0.03	0.16	0.46	0.52
+153	NA	NA	NA	NA	NA									0.01											
+154	NA	NA	NA	NA	NA			0.02				0.05		0.02		0.01					0.01				
+156	NA	NA	NA	NA	NA															0.01					
+157	NA	NA	NA	NA	NA						0.01		0.01	0.02	0.01	0.01									
+158	NA	NA	NA	NA	NA						0.01			0.03		0.04						0.01			
+159	NA	NA	NA	NA	NA			0.08	0.01					0.02	0.01	0.03	0.01								
+167	NA	NA	NA	NA	NA																	0.02			
+171	NA	NA	NA	NA	NA			0.04																	
+181	NA	NA	NA	NA	NA			0.01	0.01				0.03		0.02	0.01				0.01				0.01	0.01
+184	NA	NA	NA	NA	NA						0.02														
+185	NA	NA	NA	NA	NA						0.02														
+186	NA	NA	NA	NA	NA						0.02						0.03								
+190	NA	NA	NA	NA	NA						0.02						0.03								
+192	NA	NA	NA	NA	NA			0.05	0.01	0.18	0.32	0.26		0.03	0.03	0.12	0.01	0.12	0.08	0.03	0.02	0.05	0.03	0.01	0.01
+194	NA	NA	NA	NA	NA							0.02	0.02		0.01										
+197	NA	NA	NA	NA	NA								0.04	0.03	0.03				0.10	0.02	0.03				
+200	NA	NA	NA	NA	NA									0.01											
+205	NA	NA	NA	NA	NA			0.01						0.01		0.02									
+206	NA	NA	NA	NA	NA								0.03					0.03							
+207	NA	NA	NA	NA	NA																	0.02			
+212	NA	NA	NA	NA	NA										0.01										
+213	NA	NA	NA	NA	NA								0.01												
+214	NA	NA	NA	NA	NA								0.04												
+219	NA	NA	NA	NA	NA																0.01				
+229	NA	NA	NA	NA	NA							0.02													
+233	NA	NA	NA	NA	NA					0.17	0.08	0.03													
+246	NA	NA	NA	NA	NA			0.02																	
+268	NA	NA	NA	NA	NA						0.01														
 273	NA	NA	NA	NA	NA															0.08	0.07				
-296	NA	NA	NA	NA	NA										0.11	0.07			0.17	0.16	0.08				
+296	NA	NA	NA	NA	NA									0.04	0.11	0.07		0.04	0.17	0.16	0.08		0.02	0.01	
+297	NA	NA	NA	NA	NA							0.02													
+309	NA	NA	NA	NA	NA						0.03	0.03				0.01		0.03							
+317	NA	NA	NA	NA	NA			0.01	0.01			0.01		0.01											
+325	NA	NA	NA	NA	NA					0.01															
 334	gag	G	2	G	S															0.22	0.07				
 371	gag	D	15	N	N							0.09													
 377	gag	E	17	K	N			0.06	0.06		0.09			0.07											
@@ -17,8 +68,8 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 511	gag	I	61	I	S																			0.07	0.14
 538	gag	T	70	T	S													0.13							
 616	gag	D	96	D	S														0.08						
+641	gag	E	105	K	N									0.18	0.12			0.69	0.70	0.60	0.90	0.53	0.43	0.89	0.74
 641	gag	E	105	Q	N					0.17															
-641	gag	E	105	K	N							0.13		0.18	0.12			0.69	0.70	0.60	0.90	0.53	0.43	0.89	0.74
 647	gag	V	107	M	N													0.09							
 648	gag	V	107	E	N													0.11							
 649	gag	V	107	V	S															0.08					
@@ -30,28 +81,27 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 692	gag	A	122	S	N																	0.16	0.31	0.06	0.10
 700	gag	P	124	P	S													0.07							
 702	gag	S	125	N	N													0.20							
-727	gag	P	133	P	S															0.08		0.22	0.34	0.27	0.13
+727	gag	P	133	P	S															0.08			0.34	0.27	0.13
 766	gag	S	146	S	S													0.08							
 809	gag	E	161	K	N							0.09						0.08							
-862	gag	G	178	G	S													0.07			0.06				
+862	gag	G	178	G	S																0.06				
 956	gag	A	210	T	N																			0.19	0.39
 985	gag	H	219	Q	N																0.11			0.12	0.14
 989	gag	G	221	R	N												0.06								
-1006	gag	G	226	G	S													0.44							
 1006	gag	G	226	G	S							0.08													
 1009	gag	Q	227	Q	S						0.20														
 1016	gag	E	230	K	N							0.08													
-1018	gag	E	230	E	S														0.11	0.31	0.34				
+1018	gag	E	230	E	S														0.11		0.34				
 1051	gag	S	241	S	S			0.12																	
 1123	gag	W	265	*	N							0.10													
 1246	gag	A	306	A	S																0.06				
 1348	gag	G	340	G	S														0.09						
 1357	gag	L	343	L	S														0.09						
 1361	gag	E	345	K	N						0.08														
-1435	gag	Q	369	Q	S										0.11										
+1435	gag	Q	369	Q	S										0.07										
 1480	gag	Q	384	Q	S					0.15	0.17			0.08		0.06		0.11	0.20	0.19	0.37	0.40	0.47	0.50	0.52
-1485	gag	R	386	K	N			0.13		0.30	0.31	0.17					0.06	0.26	0.47	0.21	0.21	0.08	0.15	0.13	0.16
-1492	gag	V	388	V	S					0.14	0.10						0.17								
+1485	gag	R	386	K	N			0.13		0.29	0.31	0.17					0.06	0.26	0.47	0.21	0.21	0.08	0.15	0.13	0.16
+1492	gag	V	388	V	S					0.13	0.10						0.17								
 1530	gag	R	401	K	N						0.07	0.24													
 1551	gag	R	408	K	N									0.06			0.06								
 1600	gag	C	424	C	S																	0.08			
@@ -61,16 +111,16 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 1636	gag	I	436	I	S										0.12										
 1645	gag	P	439	P	S													0.18							
 1647	gag	R	440	H	N							0.07													
-1663	gag	G	445	G	S			0.10	0.07	0.08	0.11	0.09		0.07		0.09	0.07								
+1663	gag	G	445	G	S			0.10	0.07	0.07	0.11	0.09		0.07		0.09	0.07								
 1711	gag	P	461	P	S													0.08							
 1724	gag	G	466	R	N															0.08					
 1745	gag	D	473	N	N			0.06																	
 1753	gag	L	475	L	S															0.06					
-1760	gag	E	478	K	N		0.39		0.21	0.36			0.49	0.08	0.31										
 1764	gag	V	479	A	N														0.13		0.06				
 1772	gag	E	482	K	N							0.07													
 1779	gag	Q	484	L	N																		0.07		
 1791	gag	R	488	K	N													0.16		0.09					
+1862	pol	G	81	E	N					0.13															
 1873	pol	E	85	K	N				0.06	0.08															
 1909	pol	L	97	L	S										0.11										
 1914	pol	E	98	E	S										0.10										
@@ -84,12 +134,12 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 2012	pol	C	131	Y	N										0.06										
 2015	pol	G	132	E	N						0.09														
 2056	pol	V	146	M	N													0.11							
-2058	pol	V	146	V	S					0.07	0.12	0.47					0.06								
-2070	pol	G	150	G	S					0.19	0.08	0.08		0.06					0.08	0.11	0.11				
+2058	pol	V	146	V	S					0.21	0.12	0.47			0.14		0.06								
+2070	pol	G	150	G	S					0.16	0.08	0.08							0.08	0.11	0.11				
 2097	pol	C	159	C	S															0.07	0.08				
 2100	pol	T	160	T	S					0.06															
 2125	pol	E	169	K	N					0.08															
-2148	pol	K	176	K	S					0.17	0.10	0.06													
+2148	pol	K	176	K	S					0.18	0.10	0.06													
 2211	pol	L	197	L	S									0.15	0.11	0.20	0.17	0.30	0.40	0.28	0.42		0.09	0.07	
 2239	pol	E	207	K	N							0.10													
 2243	pol	G	208	E	N				0.06		0.09				0.07										
@@ -102,28 +152,26 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 2403	pol	A	261	A	S					0.06															
 2409	pol	L	263	L	S					0.06	0.10					0.07	0.06					0.11	0.29	0.22	0.24
 2412	pol	K	264	K	S														0.08						
-2415	pol	K	265	K	S				0.06				0.07		0.06										
 2433	pol	V	271	V	S							0.08													
 2478	pol	E	286	E	S					0.07															
 2483	pol	R	288	K	N							0.24	0.08												
 2512	pol	V	298	I	N																0.10				
 2514	pol	V	298	V	S							0.08													
 2547	pol	Y	309	Y	S						0.08														
-2594	pol	S	325	N	N					0.11	0.32	0.15													
+2594	pol	S	325	N	N					0.20	0.32	0.15													
 2601	pol	M	327	I	N							0.08													
-2602	pol	T	328	A	N																	0.06			
-2607	pol	K	329	K	S					0.13	0.12														
+2607	pol	K	329	K	S			0.07		0.11	0.12														
 2613	pol	L	331	L	S															0.14					
 2614	pol	E	332	K	N			0.17									0.19		0.16	0.23	0.13		0.08	0.26	0.29
-2624	pol	R	335	K	N			0.09		0.18	0.12														
+2624	pol	R	335	K	N			0.09		0.17	0.12														
 2627	pol	K	336	R	N											0.08				0.06	0.07				
 2665	pol	D	349	N	N																			0.09	
 2667	pol	D	349	D	S										0.06										
 2669	pol	L	350	R	N																	0.34			
 2677	pol	G	353	R	N															0.14					
-2707	pol	E	363	K	N						0.53	0.19		0.09	0.11				0.16		0.11				
-2716	pol	E	366	K	N			0.11		0.13	0.25														
-2719	pol	E	367	K	N			0.18	0.13	0.32			0.17	0.14	0.17	0.07					0.18	0.40	0.13	0.18	0.27
+2707	pol	E	363	K	N						0.53	0.19		0.12	0.19				0.16		0.11				
+2716	pol	E	366	K	N			0.13		0.28	0.25														
+2719	pol	E	367	K	N			0.18	0.13	0.31			0.17	0.14	0.17	0.07					0.18	0.40	0.13	0.18	0.27
 2742	pol	K	374	K	S																	0.43	0.33	0.20	0.19
 2751	pol	F	377	F	S										0.11										
 2778	pol	K	386	K	S						0.53	0.19									0.28			0.15	0.09
@@ -132,10 +180,11 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 2801	pol	G	394	V	N														0.08						
 2818	pol	D	400	N	N					0.11				0.09	0.15			0.98	0.36	0.28	0.38		0.11	0.08	0.11
 2845	pol	L	409	M	N														0.18						
+2883	pol	Q	421	H	N										0.06										
 2894	pol	G	425	E	N						0.09														
 2898	pol	K	426	K	S																0.14				
+2980	pol	E	454	K	N			0.06																	
 2986	pol	V	456	I	N																	0.06			
-2989	pol	T	457	A	N		0.45	0.19	0.33	0.35			0.09	0.39	0.45										
 3033	pol	E	471	E	S					0.09								0.15	0.13	0.11	0.09	0.17	0.37	0.28	0.23
 3041	pol	R	474	K	N			0.06																	
 3049	pol	V	477	I	N							0.07													
@@ -161,7 +210,6 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 3381	pol	K	587	K	S																			0.08	0.13
 3384	pol	L	588	L	S						0.06														
 3396	pol	L	592	L	S																	0.10			0.08
-3454	pol	E	612	K	N			0.06																	
 3467	pol	G	616	E	N							0.08													
 3491	pol	R	624	K	N			0.07	0.06			0.06		0.06											
 3495	pol	G	625	G	S					0.29	0.22														
@@ -169,16 +217,17 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 3583	pol	E	655	K	N																	0.13	0.06	0.07	0.07
 3583	pol	E	655	Q	N												0.08								
 3669	pol	Q	683	Q	S													0.06	0.09	0.36	0.22				
-3687	pol	V	689	V	S				0.06	0.07	0.13	0.12		0.09		0.19	0.18	0.08			0.16	0.30	0.16	0.14	0.13
+3687	pol	V	689	V	S			0.07	0.08	0.08	0.13	0.12	0.06	0.12	0.07	0.19	0.18	0.08			0.16	0.30	0.16	0.14	0.13
 3693	pol	K	691	K	S										0.07										
-3694	pol	E	692	K	N			0.12	0.09	0.07	0.06	0.07	0.09	0.11	0.07	0.13	0.13								
+3694	pol	E	692	K	N			0.12	0.08	0.07	0.06	0.07	0.09	0.11	0.07	0.13	0.13								
 3699	pol	K	693	K	S							0.06								0.07					
 3713	pol	W	698	*	N															0.07					
 3750	pol	Q	710	H	N													0.07							
 3780	pol	R	720	R	S							0.09													
+3784	pol	V	722	I	N			0.07																	
 3799	pol	G	727	R	N															0.06					
 3800	pol	G	727	E	N								0.06												
-3810	pol	K	730	K	S			0.11																	
+3810	pol	K	730	K	S			0.10																	
 3828	pol	E	736	E	S							0.07						0.26	0.51	0.46	0.62		0.09	0.07	
 3846	pol	W	742	*	N								0.06												
 3848	pol	K	743	R	N								0.06												
@@ -199,10 +248,9 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 4358	pol	G	913	E	N						0.09														
 4419	pol	T	933	T	S														0.20	0.08					
 4524	pol	G	968	G	S																		0.06	0.06	
-4554	pol	E	978	E	S										0.06										
 4557	pol	D	979	E	N												0.11								
 4583	pol	A	988	V	N													0.07							
-4584	pol	A	988	A	S						0.07														
+4584	pol	A	988	A	S					0.17	0.07														
 4628	vif	V	10	I	N					0.16	0.14														
 4672	vif	L	24	L	S													0.08		0.11	0.07				
 4696	vif	S	32	S	S														0.09	0.06	0.09				
@@ -214,13 +262,13 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 4901	vif	E	101	K	N							0.06													
 4927	vif	L	109	L	S															0.24	0.17				
 4930	vif	H	110	Q	N							0.16													
-4937	vif	D	113	N	N							0.11		0.41	0.28	0.59	0.53	0.34	0.60	0.57	0.37	0.63	0.64	0.59	0.51
+4937	vif	D	113	N	N							0.11		0.49	0.32	0.59	0.53	0.34	0.60	0.57	0.37	0.63	0.64	0.59	0.51
 4945	vif	F	115	F	S							0.07													
 4948	vif	A	116	A	S							0.08													
-4949	vif	E	117	K	N					0.13	0.23												0.09	0.17	0.24
+4949	vif	E	117	K	N					0.15	0.23												0.09	0.17	0.24
 4951	vif	E	117	E	S											0.06									
 5017	vif	H	139	H	S			0.09																	
-5061	vif	L	154	Q	N					0.08	0.07														
+5061	vif	L	154	Q	N					0.15	0.07														
 5067	vif	R	156	K	N			0.07																	
 5068	vif	R	156	R	S										0.12			0.06						0.06	
 5083	vif	P	161	P	S							0.06													
@@ -244,6 +292,12 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 5555	tat	G	56	R	N																0.07				
 5568	tat	S	60	N	N														0.12			0.23	0.38	0.30	0.33
 5592	tat	I	68	T	N									0.06			0.17	0.23				0.17			
+5603	NA	NA	NA	NA	NA																	0.01			
+5611	NA	NA	NA	NA	NA																				0.02
+5613	NA	NA	NA	NA	NA					0.01		0.03			0.01	0.02	0.01								
+5615	NA	NA	NA	NA	NA					0.01	0.02														
+5619	NA	NA	NA	NA	NA											0.01									
+5623	NA	NA	NA	NA	NA											0.02						0.01			
 5630	vpu	E	2	K	N							0.11													
 5646	vpu	L	7	S	N																	0.18	0.20	0.22	0.24
 5649	vpu	G	8	E	N													0.18							
@@ -253,6 +307,7 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 5687	vpu	V	21	I	N							0.07													
 5695	vpu	W	23	*	N					0.07															0.09
 5741	vpu	R	39	G	N														0.15	0.11	0.18				
+5742	vpu	R	39	K	N			0.06																	
 5760	vpu	R	45	K	N																				0.13
 5772	vpu	R	49	K	N																		0.11		0.06
 5787	vpu	G	54	E	N			0.06		0.09	0.17	0.10													
@@ -265,6 +320,7 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 5832	vpu	I	69	T	N																			0.09	0.09
 5840	vpu	D	72	N	N																			0.13	0.13
 5844	vpu	R	73	H	N														0.08	0.14	0.14	0.31	0.10		
+5855	vpu	V	77	M	N					0.09															
 5865	vpu	R	80	K	N					0.06												0.06			
 5870	vpu	Y	82	D	N														0.13						
 5878	envelope	S	30	F	N							0.08													
@@ -279,21 +335,21 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 6065	envelope	E	92	E	S													0.07	0.11	0.20	0.12				
 6098	envelope	Q	103	Q	S													0.10							
 6124	envelope	W	112	*	N															0.06					
-6172	envelope	T	128	I	N										0.37	0.10	0.07								
+6172	envelope	T	128	I	N										0.35	0.10	0.07								
 6177	envelope	N	130	D	N																			0.09	0.22
 6191	envelope	N	134	N	S																			0.10	0.11
 6214	envelope	V	142	E	N							0.09													
 6218	envelope	Q	143	Q	S					0.21	0.34	0.11													
 6224	envelope	N	145	N	S														0.07						
-6234	envelope	N	149	Y	N			0.11		0.07	0.16	0.54		0.64	0.32	0.62	0.68	0.71	0.96	0.91	0.97	0.80	0.98	0.80	0.75
+6234	envelope	N	149	Y	N			0.11		0.07	0.16	0.54		0.64	0.33	0.62	0.68	0.71	0.96	0.91	0.97	0.80	0.98	0.80	0.75
 6255	envelope	D	156	N	N					0.11	0.06	0.06													
 6266	envelope	K	159	K	S														0.23	0.16	0.06				
-6289	envelope	R	167	K	N									0.09		0.08	0.07	0.29		0.09		0.17		0.18	0.24
+6289	envelope	R	167	K	N									0.16	0.11	0.08	0.07	0.29		0.09		0.17		0.18	0.24
 6297	envelope	I	170	L	N																				0.07
 6314	envelope	S	175	S	S																				0.08
 6321	envelope	T	178	A	N											0.10									
 6348	envelope	I	187	V	N									0.10											
-6349	envelope	I	187	N	N										0.42										
+6349	envelope	I	187	N	N										0.40										
 6349	envelope	I	187	S	N										0.06										
 6461	envelope	Q	224	Q	S						0.07	0.15													
 6481	envelope	T	231	K	N							0.07													
@@ -303,8 +359,9 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 6571	envelope	G	261	E	N					0.11	0.06														
 6573	envelope	N	262	D	N														0.08						
 6592	envelope	V	268	A	N																	0.37	0.08		
-6683	envelope	E	298	E	S														0.29	0.42	0.17				
+6634	envelope	A	282	D	N					0.08															
 6683	envelope	E	298	D	N														0.09	0.15	0.13			0.11	0.27
+6683	envelope	E	298	E	S														0.29	0.42	0.17				
 6692	envelope	P	301	P	S														0.09						
 6696	envelope	G	303	R	N															0.06					
 6725	envelope	K	312	K	S																0.06				
@@ -327,15 +384,15 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 7019	envelope	Q	410	Q	S						0.15														
 7020	envelope	G	411	R	N			0.32						0.18		0.30	0.18								
 7021	envelope	G	411	E	N			0.19			0.07														
-7026	envelope	G	413	R	N					0.13	0.40	0.83		0.28	0.18	0.47	0.64	1.00	0.99	1.00	0.99	0.99	0.99	0.99	0.99
-7027	envelope	G	413	E	N							0.14		0.20	0.13	0.50	0.66	1.00	0.99	1.00	0.99	0.99	0.99	0.99	0.99
+7026	envelope	G	413	R	N					0.26	0.40	0.83		0.57	0.32	0.47	0.64	1.00	0.99	1.00	0.99	0.99	0.99	0.99	0.99
+7027	envelope	G	413	E	N							0.14		0.59	0.33	0.50	0.66	1.00	0.99	1.00	0.99	0.99	0.99	0.99	0.99
 7030	envelope	K	414	R	N							0.33						0.15	0.44	0.56	0.84	0.16	0.54	0.80	0.91
 7031	envelope	K	414	K	S													0.30	0.45	0.06			0.14	0.14	
 7067	envelope	Q	426	H	N																			0.26	0.22
 7097	envelope	L	436	L	S							0.13													
-7114	envelope	N	442	I	N									0.47	0.32	0.50	0.51	0.91	0.98	0.94	0.99	0.82	0.97	1.00	0.99
+7114	envelope	N	442	I	N									0.48	0.32	0.50	0.51	0.91	0.98	0.94	0.99	0.82	0.97	1.00	0.99
 7116	envelope	E	443	K	N					0.07	0.13	0.56										0.13			
-7153	envelope	R	455	K	N					0.23	0.50	0.74						0.59	0.31	0.11	0.11	0.16	0.39	0.35	0.38
+7153	envelope	R	455	K	N					0.27	0.50	0.74						0.59	0.31	0.11	0.11	0.16	0.39	0.35	0.38
 7192	envelope	V	468	E	N																				0.14
 7194	envelope	K	469	E	N															0.06	0.28			0.42	0.50
 7195	envelope	K	469	R	N										0.10			0.12	0.18	0.17					
@@ -343,23 +400,22 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 7223	envelope	T	478	T	S											0.06									
 7271	envelope	L	494	L	S							0.08													
 7277	envelope	V	496	V	S											0.11	0.08	0.08		0.10					
-7384	envelope	S	532	N	N									0.08				0.08						0.35	0.36
+7384	envelope	S	532	N	N													0.08						0.35	0.36
 7389	envelope	L	534	M	N													0.09							
-7394	envelope	L	535	L	S					0.08	0.07														
+7394	envelope	L	535	L	S					0.08	0.07			0.06											
 7396	envelope	K	536	R	N															0.07	0.07				
 7439	envelope	W	550	*	N															0.07					
 7453	envelope	L	555	P	N															0.07					
 7475	envelope	V	562	V	S													0.06							
-7568	envelope	W	593	*	N					0.06															
-7576	envelope	K	596	R	N									0.43	0.14		0.08	0.35	0.49	0.59	0.60	0.18	0.23	0.17	0.07
+7576	envelope	K	596	R	N										0.14		0.08	0.35	0.49	0.59	0.60	0.18	0.23	0.17	0.07
 7577	envelope	K	596	N	N						0.06	0.49					0.07	0.36	0.47	0.40	0.40	0.38	0.57	0.78	0.87
-7578	envelope	L	597	V	N							0.18				0.08	0.06	0.15				0.38	0.14		
+7578	envelope	L	597	V	N							0.18		0.09	0.06	0.08	0.06	0.15				0.38	0.14		
 7602	envelope	D	605	N	N																	0.10			
 7628	envelope	E	613	E	S			0.07																	
 7630	envelope	K	614	R	N																	0.22	0.07		
 7634	envelope	E	615	E	S												0.11				0.06				
 7654	envelope	T	622	I	N													0.09							
-7675	envelope	R	629	Q	N							0.38					0.09								
+7675	envelope	R	629	Q	N							0.38		0.06			0.09								
 7679	envelope	S	630	S	S							0.06													
 7737	envelope	L	650	L	S																			0.24	0.22
 7739	envelope	L	650	L	S						0.07														
@@ -371,20 +427,21 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 7845	envelope	V	686	I	N													0.08							
 7883	envelope	F	698	L	N														0.07						
 7892	envelope	P	701	P	S													0.11				0.17	0.41	0.28	0.19
-7893	envelope	F	702	L	N					0.07		0.17		0.14		0.15	0.10	0.52	0.94	0.93	0.90	0.49	0.33	0.52	0.61
-7894	envelope	F	702	Y	N									0.35	0.17	0.29	0.39	0.19		0.07	0.08	0.28	0.20	0.19	0.18
-7911	envelope	P	708	S	N			0.13		0.35	0.37	0.21													
-7919	envelope	R	710	R	S									0.37	0.18	0.32	0.45	0.20		0.09	0.09	0.52	0.63	0.49	0.39
-7923	envelope	E	712	K	N			0.14		0.23	0.17	0.08		0.14	0.19	0.06	0.06	0.11							
+7893	envelope	F	702	L	N					0.07		0.17		0.13		0.15	0.10	0.52	0.94	0.93	0.90	0.49	0.33	0.52	0.61
+7894	envelope	F	702	Y	N									0.39	0.17	0.29	0.39	0.19		0.07	0.08	0.28	0.20	0.19	0.18
+7911	envelope	P	708	S	N			0.10		0.35	0.37	0.21													
+7919	envelope	R	710	R	S									0.38	0.18	0.32	0.45	0.20		0.09	0.09	0.52	0.63	0.49	0.39
+7923	envelope	E	712	K	N			0.15		0.23	0.17	0.08		0.13	0.19	0.06	0.06	0.11							
 7927	envelope	G	713	E	N						0.06														
 7947	envelope	E	720	K	N																	0.11			
-7959	envelope	V	724	I	N			0.09																	
+7959	envelope	V	724	I	N			0.10																	
 7970	envelope	V	727	V	S										0.12										
 7979	envelope	V	730	V	S						0.07														
 8012	envelope	L	741	L	S							0.08													
 8034	envelope	Y	749	H	N														0.11						
 8047	envelope	R	753	K	N						0.06														
 8064	envelope	V	759	L	N																0.08				
+8086	envelope	V	766	E	N					0.06															
 8111	envelope	L	774	L	S			0.06							0.06			0.30	0.31	0.18	0.07	0.10	0.11	0.11	0.17
 8112	envelope	R	775	G	N						0.14														
 8114	envelope	R	775	R	S												0.09								
@@ -396,16 +453,17 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 8214	envelope	A	809	T	N																0.12				
 8259	envelope	V	824	I	N														0.13	0.08					
 8283	envelope	P	832	S	N			0.12																	
-8301	envelope	G	838	S	N			0.22		0.43	0.55	0.12		0.92	0.44	0.92	0.94	0.88	1.00	1.00	1.00	1.00	1.00	1.00	1.00
+8301	envelope	G	838	S	N			0.22		0.43	0.55	0.12		0.91	0.44	0.92	0.94	0.88	1.00	1.00	1.00	1.00	1.00	1.00	1.00
 8306	envelope	L	839	L	S													0.17	0.54	0.55	0.58	0.11	0.10	0.12	0.08
 8307	envelope	E	840	K	N						0.12														
 8311	envelope	R	841	K	N			0.06																	
 8317	envelope	L	843	S	N			0.06																	
-8325	NA	NA	NA	NA	NA										0.06		0.07						0.06		
+8325	NA	NA	NA	NA	NA					0.02			0.02	0.03	0.06	0.03	0.07		0.02			0.04	0.06	0.03	0.03
 8331	nef	G	2	G	S									0.12		0.11	0.06	0.54	0.40	0.42	0.34	0.32	0.46	0.49	0.55
 8353	nef	L	10	L	S													0.07			0.07				
 8360	nef	G	12	E	N						0.10														
 8379	nef	D	18	D	S							0.09													
+8387	nef	R	21	K	N									0.06											
 8413	nef	V	30	I	N																	0.12	0.06		
 8419	nef	P	32	S	N													0.12							
 8425	nef	S	34	A	N																0.09				
@@ -414,7 +472,7 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 8443	nef	H	40	Y	N						0.07														
 8447	nef	G	41	E	N						0.10														
 8478	nef	T	51	T	S					0.11															
-8482	nef	E	53	K	N					0.20	0.19	0.08													
+8482	nef	E	53	K	N					0.17	0.19	0.08													
 8485	nef	T	54	A	N													0.06							
 8500	nef	E	59	K	N													0.06				0.36	0.10	0.11	0.20
 8503	nef	E	60	K	N															0.10		0.08			
@@ -427,12 +485,12 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 8574	nef	A	83	A	S													0.11							
 8684	nef	F	120	Y	N												0.11								
 8696	nef	W	124	S	N													0.06							
-8703	nef	N	126	K	N					0.22	0.43	0.89		0.12		0.10	0.08	0.58	0.27	0.28	0.34	0.93	0.80	0.79	0.74
+8703	nef	N	126	K	N					0.21	0.43	0.89		0.11		0.10	0.08	0.58	0.27	0.28	0.34	0.93	0.80	0.79	0.74
 8721	nef	G	132	G	S																	0.16			
 8734	nef	V	137	M	N															0.24	0.11				
 8754	nef	F	143	F	S																		0.06	0.08	
 8766	nef	P	147	P	S												0.08								
-8784	nef	V	153	V	S						0.11	0.56													
+8784	nef	V	153	V	S					0.06	0.11	0.56													
 8788	nef	E	155	K	N													0.11							
 8812	nef	V	163	M	N			0.07		0.15	0.48	0.57			0.11	0.06	0.22	0.56	0.95	0.99	0.99	0.68	0.95	0.98	0.98
 8836	nef	H	171	N	N															0.25	0.08				
@@ -443,8 +501,31 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVcpzMB897_Water_control_variant
 8916	nef	E	197	E	S					0.08	0.07	0.39													
 8928	nef	E	201	E	S														0.07						
 8952	NA	NA	NA	NA	NA					0.11															
+8955	NA	NA	NA	NA	NA			0.03						0.02											
+8960	NA	NA	NA	NA	NA						0.02														
+8967	NA	NA	NA	NA	NA				0.01																
+8968	NA	NA	NA	NA	NA																	0.02			
 8969	NA	NA	NA	NA	NA					0.06															
-8978	NA	NA	NA	NA	NA													0.09							
+8971	NA	NA	NA	NA	NA									0.02											
+8973	NA	NA	NA	NA	NA											0.01									
+8976	NA	NA	NA	NA	NA				0.01				0.01												
+8978	NA	NA	NA	NA	NA										0.02			0.09				0.03			
+8982	NA	NA	NA	NA	NA			0.01																	
+8985	NA	NA	NA	NA	NA			0.04																	
 8988	NA	NA	NA	NA	NA													0.06							
+8989	NA	NA	NA	NA	NA					0.02														0.02	
+8993	NA	NA	NA	NA	NA																0.03				
+8997	NA	NA	NA	NA	NA			0.01							0.01										
+8999	NA	NA	NA	NA	NA					0.02															
+9005	NA	NA	NA	NA	NA																	0.03			
+9006	NA	NA	NA	NA	NA				0.01																
+9007	NA	NA	NA	NA	NA																0.01				
+9009	NA	NA	NA	NA	NA										0.02										
+9010	NA	NA	NA	NA	NA			0.02																	
 9012	NA	NA	NA	NA	NA													0.05							
-9030	NA	NA	NA	NA	NA			0.14						0.06											
+9014	NA	NA	NA	NA	NA				0.02		0.05									0.02	0.03				
+9026	NA	NA	NA	NA	NA												0.01								
+9028	NA	NA	NA	NA	NA												0.02								
+9030	NA	NA	NA	NA	NA			0.14	0.01				0.01	0.06	0.01			0.03							
+9032	NA	NA	NA	NA	NA					0.04					0.02		0.04								
+9036	NA	NA	NA	NA	NA																	0.03			

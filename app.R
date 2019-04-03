@@ -1,4 +1,5 @@
 ## app.R ##
+# library(tidyverse)
 library(shiny)
 library(shinydashboard)
 library(stringr)
@@ -7,6 +8,7 @@ library(tidyr)
 library(ggplot2)
 library(DT)
 library(broom)
+library(ggthemes)
 # library(ggnewscale)
 
 # read in input datasets
@@ -61,11 +63,16 @@ pre_process_dataset <- function(df){
   
   # pwg is position/week/generation ->  a unique identifier 
   df <- mutate(df, pwg = paste(as.character(position), week, gen))
-
-  # variant name is e.g. gag K32N
+  
+  # variant name is position + aa change, e.g. 2832 gag K32N
   df <- mutate(df, variant_name = ifelse(is.na(cds), 
                                          position,
                                          paste0(position, " " , cds, " ", ref_aa, codon_number, alt_aa)))
+  
+  # variant name no position is e.g. gag K32N
+  df <- mutate(df, variant_name_no_position = ifelse(is.na(cds), 
+                                         position,
+                                         paste0(cds, " ", ref_aa, codon_number, alt_aa)))
   
   
   # timepoints of sampling based on generation, week, and replicate (A or B)
@@ -119,6 +126,7 @@ ui <- dashboardPage(
     
     sliderInput("min_dataset_slider", label="Present in at least N datasets: ", min=1, max=10, value=4),
     sliderInput("min_max_spread", label="Min. difference between minimum and maximum frequencies: ", min=0, max=1, value=0),
+    sliderInput("min_frequency_last_timepoint", label="Min. mean frequency last timepoint: ", min=0, max=1, value=0.5),
     
     hr(),
     
@@ -134,7 +142,8 @@ ui <- dashboardPage(
     # display all variants on 1 plot
     h4("Plotting options:"),
     checkboxInput("one_plot", "All variants on one scatter plot", value=FALSE),
-    checkboxInput("circles_not_lines", "Circles instead of lines", value=FALSE),
+    checkboxInput("circles_not_lines", "Circles instead of lines", value=TRUE),
+    checkboxInput("plot_labels", "Variant labels", value=F),
     hr(),
     
     hr(),
@@ -154,9 +163,10 @@ ui <- dashboardPage(
                  c("LB715" = "lb",
                    "EK505" = "ek",
                    "MB897" = "mb"), inline = TRUE)
+                   # "All" = "all" ), inline = TRUE)
     ),
     fluidRow(plotOutput("var_plot")),
-    fluidRow(plotOutput("all_plot")),
+    fluidRow(plotOutput("genome_plot")),
     fluidRow(column(dataTableOutput("var_table"), width=12, style = "font-size:80%"))
     
   ) # end dashboardBody
@@ -172,6 +182,7 @@ server <- function(input, output) {
                          lb = lb_df_in,
                          ek = ek_df_in,
                          mb = mb_df_in,
+                         all = rbind(lb_df_in, ek_df_in, mb_df_in),
                          lb_df_in)
   })
   
@@ -186,6 +197,7 @@ server <- function(input, output) {
     input$positive_regression_slope
     input$min_dataset_slider
     input$min_max_spread
+    input$min_frequency_last_timepoint
     rv$data_in
     },{
       rv$data <- filter_variants(rv$data_in)
@@ -219,6 +231,22 @@ server <- function(input, output) {
     n_var <-nrow(filtered_df %>% group_by(variant_name) %>% summarise())
     print (paste(n_var, "variants post N/S"))
     
+    # filter variants whose value in the last datapoint(s) is above a certain value    
+    # MARKMARK
+    last_gen = max(filtered_df$gen)
+    in_last_gen <- filter(filtered_df, as.numeric(gen) == as.numeric(last_gen))
+    print (paste0("last gen: ", last_gen))
+    last_week = max(as.numeric(in_last_gen$week))
+    print (paste0("last week: ", last_week))
+    sufficient_freq_in_last_week <- filter(in_last_gen, as.numeric(week) == as.numeric(last_week)) %>% 
+                 group_by(variant_name) %>%
+                 summarize(
+                   mean_freq = mean(frequency)
+                 ) %>%
+                 filter(mean_freq > input$min_frequency_last_timepoint)
+    filtered_df <- filtered_df %>% filter(variant_name %in% sufficient_freq_in_last_week$variant_name)
+
+
     # filter variants whose maximum value is a certain amount higher than the minimum value
     min_max_pass <- filtered_df %>% filter (!is.na(frequency)) %>%
                     group_by(variant_name) %>% summarize (min_freq = min(frequency), max_freq = max(frequency), max_min = max_freq - min_freq) %>%
@@ -317,9 +345,9 @@ server <- function(input, output) {
         return(dat)
      })
     
-    output$var_plot <- renderPlot(var_plot_function())
+    output$var_plot <- renderPlot(scatter_plot_function())
     
-    var_plot_function = function(){
+    scatter_plot_function = function(){
       if (input$one_plot){
         # TODO: color by something
         ggplot(data=rv$data[!is.na(rv$data$frequency),], aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep) ) +
@@ -328,45 +356,84 @@ server <- function(input, output) {
       }
       else
       {
-        data_to_plot <- rv$data %>% arrange(as.numeric(position))
+        # data_to_plot <- rv$data %>% arrange(as.numeric(as.character(position)))
+        data_to_plot <- rv$data 
+                                                   
+        # Facet wrap orders facet by the variable you specify, and it can be a bit tricky to change that order
+        # see: 
+        # https://kohske.wordpress.com/2010/12/29/faq-how-to-order-the-factor-variables-in-ggplot2/
+        # for help
+        data_to_plot$variant_name <- reorder(data_to_plot$variant_name, as.numeric(as.character(data_to_plot$position)))
+        data_to_plot$variant_name_no_position <- reorder(data_to_plot$variant_name_no_position, as.numeric(as.character(data_to_plot$position)))
+        
+        gdtp <- data_to_plot %>% group_by(variant_name) %>% summarise (maxpos=max(position))
+        print (gdtp)
         # ggplot(data=rv$data[!is.na(rv$data$frequency),], aes(x=plot_week, y= frequency, group=interaction(rep, position), color=rep)) +
-        ggplot(data=data_to_plot, aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep)) +
+        
+        ggplot(data=data_to_plot, aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep, order=as.numeric(as.character(position)))) +
           geom_point(shape=20) +
           geom_line(linetype=3) + 
           geom_line(data=filter(data_to_plot, gen == 1)) + 
           geom_line(data=filter(data_to_plot, gen == 2)) +
           # geom_smooth() +
           # theme(legend.position="none", strip.text = element_text(size=12) ) +  #We don't want a giant legend with each position #
-          theme_classic() +
-          theme(text = element_text(size=8)) +
+          
+          # theme_classic() +
+          
+          xlab("week post initial infection") +
+          ylab("variant frequency") +
           # scale_y_log10() +
           # coord_fixed(ratio=20) + 
-          facet_wrap(~variant_name) 
+          facet_wrap(~variant_name_no_position) +
+          # facet_wrap(~variant_name) +
+          theme_tufte() + 
+          theme(text = element_text(size=12, family="sans"),
+                # legend.position="none",
+                axis.line=element_line(),
+                strip.text=element_text(size=10, family="sans", colour = "grey50")) +
+                annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+                annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf)+
+                # scale_x_continuous( breaks=c(0,0.5,1)) + 
+                scale_y_continuous(breaks=c(0,0.5,1), labels=c("0", "0.5", "1"))
+                # scale_x_continuous(limits=c(10,35)) + scale_y_continuous(limits=c(0,400))
+                # strip.background = element_blank()) 
           
       }
     }
     
-    output$all_plot <- renderPlot(all_plot_function())
+    output$genome_plot <- renderPlot(genome_plot_function())
     
-    all_plot_function = function(){
+    genome_plot_function = function(){
+      
+      # copy df & make a fake y axis variable that is a composite of the week plus the replicate
+      data_to_plot <- rv$data %>% filter(!is.na(frequency)) %>% mutate(y_plot_week = plot_week + ifelse(rep == "A", 0, 2) )
+      max_plot_y = max(data_to_plot$y_plot_week)
+      variant_labels <- data_to_plot %>% group_by(variant_name) %>% summarize(name=variant_name_no_position[1], position=position[1], label_y=max_plot_y + 3)
+      p <- ggplot(data=data_to_plot) 
       if (input$circles_not_lines) {
-        # make a fake y axis variable that is a composite of the week plus the replicate
-        data_to_plot <- rv$data %>% filter(!is.na(frequency)) %>% mutate(y_plot_week = plot_week + ifelse(rep == "A", 0, 2) )
-        ggplot(data=data_to_plot) +
-          geom_point(aes(y=y_plot_week, x=position, fill=frequency), shape=21, size=3, alpha=0.8, color="black", stroke=0.2)  +
-          # scale_fill_gradient(low="grey90", high="red", breaks=c(0,1))
-          scale_fill_gradient(low="#FFDFDF", high="#FF0000", breaks=c(0,1)) +
-          theme_classic() +
-          xlab ("position in genome (nt)") + 
-          ylab ("week / replicate / passage")
+        p <- p + 
+          geom_point(aes(y=y_plot_week, x=position, fill=frequency), shape=21, size=2.5, alpha=0.8, color="black", stroke=0.2)  +
+          scale_fill_gradient(low="#FFDFDF", high="#FF0000", breaks=c(0,1)) 
+      } else {
+        p <- 
+          p + geom_segment(data=data_to_plot, aes(x=position, xend=position, y=y_plot_week, yend=y_plot_week+1.5, color=frequency), size=1.5 ) +
+          scale_color_gradient(low="#FFDFDF", high="#FF0000", breaks=c(0,1)) 
+      } 
+      p <- p + 
+        scale_x_continuous(limits=c(0,10000)) +
+        theme_classic() +
+        theme(text = element_text(size=10, family="sans")) + 
+        
+        xlab ("position in genome (nt)") + 
+        ylab ("week / replicate / passage") 
+      
+      if (input$plot_labels){
+        p <- p + geom_text(data=variant_labels, aes(x=position, y=label_y, label=name))
       }
-      else {
-        # make a fake y axis variable that is a composite of the week plus the replicate
-        data_to_plot <- rv$data %>% filter(!is.na(frequency)) %>% mutate(y_plot_week = plot_week + ifelse(rep == "A", 0, 2) )
-        ggplot() +
-          
-          geom_segment(data=data_to_plot, aes(x=position, xend=position, y=y_plot_week, yend=y_plot_week+1.5, color=frequency), size=1.5 ) +
-          scale_color_gradient(low="#FFDFDF", high="#FF0000", breaks=c(0,1)) +
+      
+      p
+      
+    }
           
           # NS / S w/ different color scales - would need ggnewscale library to work but doesn't...
           # non-synonymous
@@ -376,13 +443,7 @@ server <- function(input, output) {
           # synonymous
           # geom_segment(data=filter(data_to_plot, N_or_S == "S"), aes(x=position, xend=position, y=y_plot_week, yend=y_plot_week+1.5, color=frequency), size=1.5 ) +
           # scale_color_gradient(low="#FFDFDF", high="#FF0000", breaks=c(0,1)) +
-          
-          theme_classic() +
-          xlab ("position in genome (nt)") + 
-          ylab ("week / replicate / passage")
-      }
-    }
-      
+    
       #my @color_ranges =  ( [ 0xFFDFDF, 0xFF0000] , 
                             #[ 0xC7C7C7, 0x676767] );
     
@@ -392,7 +453,7 @@ server <- function(input, output) {
         device <- function(..., width, height) {
           grDevices::pdf(..., width = width, height = height)
         }
-        ggsave(file, plot = var_plot_function(), device = "pdf", dpi=300, height=4, width=7, units="in")
+        ggsave(file, plot = scatter_plot_function(), device = "pdf", dpi=300, height=3, width=6, units="in")
       })
     
     output$download_genome_plot <- downloadHandler(
@@ -401,10 +462,11 @@ server <- function(input, output) {
         device <- function(..., width, height) {
           grDevices::pdf(..., width = width, height = height)
         }
-        ggsave(file, plot = all_plot_function(), device = "pdf", dpi=300, height=4, width=7, units="in")
+        ggsave(file, plot = genome_plot_function(), device = "pdf", dpi=300, height=2.5, width=6, units="in")
       })
  
 } # end server function
 
 shinyApp(ui, server)
+
 
