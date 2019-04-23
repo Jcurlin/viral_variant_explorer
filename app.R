@@ -399,6 +399,7 @@ server <- function(input, output) {
                        options = list(
                          autoWidth = TRUE,
                          pageLength = 50,
+                         scrollX = TRUE,
                          lengthMenu = c(10, 20, 50, 100, 200)
                          # columnDefs = list(list(width = '20px', targets = "_all" ))
                        )) %>%
