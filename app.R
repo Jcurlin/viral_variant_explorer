@@ -15,6 +15,21 @@ library(ggthemes)
 lb_df_in <- read.delim("data/SIVcpzLB715_variant_table.txt", sep="\t", header=TRUE)
 ek_df_in <- read.delim("data/SIVcpzEK505_variant_table.txt", sep="\t", header=TRUE)
 mb_df_in <- read.delim("data/SIVcpzMB897_variant_table.txt", sep="\t", header=TRUE)
+ppm_df_in <- read.delim("data/all_ppm_data.txt", sep="\t", header=TRUE)
+map_df_in <- read.delim("data/protein_msa_mapping.txt", sep="\t", header=TRUE)
+
+# format ppm dataset
+colnames(ppm_df_in) <- c("virus", "gene", "msa_position", "residue", "frequency") 
+# replace gen "NA" values for stock with 0
+ppm_df_in$frequency[is.na(ppm_df_in$frequency)] <- 0
+ppm_df_in$frequency <- round(ppm_df_in$frequency, 2)
+# format mapping dataset
+colnames(map_df_in) <- c("siv_strain", "gene", "native_position", "msa_position")
+
+ppm_df_spread <- spread(ppm_df_in, virus, frequency)
+
+# join tables to create df by strain/position/amino acid & frequencies in HIV & SIV
+ppm_df <- right_join(map_df_in, ppm_df_spread) 
 
 # getrid of water control datasets
 lb_df_in <- lb_df_in %>% select(-contains("Water"))
@@ -57,6 +72,9 @@ pre_process_dataset <- function(df){
   
   # replace rep "NA" values for stock with A
   df$rep[is.na(df$rep)] <- "A"
+  
+  # replace rep "envelope" values for cds with "env"
+  df$cds <- str_replace(df$cds, "envelope", "env")
   
   # convert NA frequencies to 0s  
   df$frequency[is.na(df$frequency)] <- 0
@@ -108,6 +126,25 @@ lb_df_in <- pre_process_dataset(lb_df_in)
 ek_df_in <- pre_process_dataset(ek_df_in)
 mb_df_in <- pre_process_dataset(mb_df_in)
   
+# merge frequency datasets with ppm data (add ppm data)
+
+lb_df_in <- left_join(lb_df_in, filter(ppm_df, siv_strain == "LB715"), by = c("cds" = "gene", "codon_number" = "native_position", "ref_aa" = "residue"))  %>% 
+  select (-siv_strain, -msa_position, ref_hiv=hiv, ref_siv=siv) 
+lb_df_in <- left_join(lb_df_in, filter(ppm_df, siv_strain == "LB715"), by = c("cds" = "gene", "codon_number" = "native_position", "alt_aa" = "residue"))  %>% 
+  select (-siv_strain, alt_hiv=hiv, alt_siv=siv) 
+lb_df_in[]
+
+ek_df_in <- left_join(ek_df_in, filter(ppm_df, siv_strain == "EK505"), by = c("cds" = "gene", "codon_number" = "native_position", "ref_aa" = "residue"))  %>% 
+  select (-siv_strain, -msa_position, ref_hiv=hiv, ref_siv=siv) 
+ek_df_in <- left_join(ek_df_in, filter(ppm_df, siv_strain == "EK505"), by = c("cds" = "gene", "codon_number" = "native_position", "alt_aa" = "residue"))  %>% 
+  select (-siv_strain, alt_hiv=hiv, alt_siv=siv) 
+
+mb_df_in <- left_join(mb_df_in, filter(ppm_df, siv_strain == "MB897"), by = c("cds" = "gene", "codon_number" = "native_position", "ref_aa" = "residue"))  %>% 
+  select (-siv_strain, -msa_position, ref_hiv=hiv, ref_siv=siv) 
+mb_df_in <- left_join(mb_df_in, filter(ppm_df, siv_strain == "MB897"), by = c("cds" = "gene", "codon_number" = "native_position", "alt_aa" = "residue"))  %>% 
+  select (-siv_strain, alt_hiv=hiv, alt_siv=siv) 
+
+
 
 # setup UI and interactive inputs
 ui <- dashboardPage(
@@ -127,6 +164,7 @@ ui <- dashboardPage(
     sliderInput("min_dataset_slider", label="Present in at least N datasets: ", min=1, max=10, value=4),
     sliderInput("min_max_spread", label="Min. difference between minimum and maximum frequencies: ", min=0, max=1, value=0),
     sliderInput("min_frequency_last_timepoint", label="Min. mean frequency last timepoint: ", min=0, max=1, value=0.5),
+    sliderInput("min_alt_hiv", label="Min. alt. hiv frequency: ", min=0, max=1, value=0.0),
     
     hr(),
     
@@ -139,18 +177,18 @@ ui <- dashboardPage(
     
     # checkboxInput("no_table", "Don't show table", value=FALSE),
     
-    # display all variants on 1 plot
     h4("Plotting options:"),
-    checkboxInput("one_plot", "All variants on one scatter plot", value=FALSE),
+    # checkboxInput("one_plot", "All variants on one scatter plot", value=FALSE),
     checkboxInput("circles_not_lines", "Circles instead of lines", value=TRUE),
     checkboxInput("plot_labels", "Variant labels", value=F),
-    hr(),
     
     hr(),
-    h4("Downloading:"),
+    h4("Download plots or data table:"),
     downloadButton('download_scatter_plot', label = "Download scatter plots"),
-    downloadButton('download_genome_plot',  label = "Download genome plot")
-    
+    hr(),
+    downloadButton('download_genome_plot',  label = "Download genome plot"),
+    hr(),
+    downloadButton('download_data_table',  label = "Download data table")
     
   ), #Sidebar
   dashboardBody(
@@ -190,7 +228,6 @@ server <- function(input, output) {
   # these inputs changing will triggger filtering
   # this observeEvent controls the reactivity --> when any input changes, filter variants appropriately
   observeEvent({
-    input$one_plot
     input$in_CDS
     input$N_only 
     input$present_in_last_gen
@@ -198,6 +235,7 @@ server <- function(input, output) {
     input$min_dataset_slider
     input$min_max_spread
     input$min_frequency_last_timepoint
+    input$min_alt_hiv
     rv$data_in
     },{
       rv$data <- filter_variants(rv$data_in)
@@ -232,7 +270,6 @@ server <- function(input, output) {
     print (paste(n_var, "variants post N/S"))
     
     # filter variants whose value in the last datapoint(s) is above a certain value    
-    # MARKMARK
     last_gen = max(filtered_df$gen)
     in_last_gen <- filter(filtered_df, as.numeric(gen) == as.numeric(last_gen))
     print (paste0("last gen: ", last_gen))
@@ -281,6 +318,7 @@ server <- function(input, output) {
          n = n()
        ) %>%
        filter(n > 0)
+      
     
        filtered_df <- filtered_df %>% filter(variant_name %in% in_max_gen$variant_name)
     }
@@ -301,9 +339,17 @@ server <- function(input, output) {
       df_high_slope <- dfHourCoef %>% filter(term == "plot_week" & estimate > 0)
       filtered_df <- filtered_df %>% filter(variant_name %in% df_high_slope$variant_name)
     }
-    
     n_var <-nrow(filtered_df %>% group_by(variant_name) %>% summarise())
     print (paste(n_var, "variants post pos. reg."))
+    
+    # filter variants based on difference between frequency of alternate allele in HIV & SIV 
+    # compendium alignments
+    filtered_df <- filtered_df %>% 
+      filter(alt_hiv >= input$min_alt_hiv)
+    
+    n_var <-nrow(filtered_df %>% group_by(variant_name) %>% summarise())
+    print (paste(n_var, "variants post min alt siv"))
+    
     
     # keep track of # of post-filtering variants
     post_var <- nrow(filtered_df %>% group_by(variant_name) %>% summarise())
@@ -315,22 +361,38 @@ server <- function(input, output) {
     
     # Render the data table
   
-    output$var_table <- DT::renderDataTable({ 
+    output$var_table <- DT::renderDataTable(dt_function()) 
       
-      # this will make variant frequencies colored like a heatmap
-      brks <- seq(0, 1, 0.1)
-      clrs <- round(seq(255, 125, length.out = length(brks) + 1), 0) %>%
-      {paste0("rgb(" , . , "," , . , ",255)")}
+    
+    prepare_dt <- function(){
       
       # This code collects the data into a table (tidy long -> wide format) and outputs in the order of timepoint collection
       data_table_unspread <- rv$data %>% filter(!is.na(frequency)) %>%
-        select (position, variant_name, gen, week, rep, frequency) %>% 
+        # select (position, variant_name, gen, week, rep, frequency) %>% 
+        select (position, variant_name, gen, week, rep, frequency, ref_hiv, ref_siv, alt_hiv, alt_siv) %>% 
         arrange(gen, as.numeric(week), rep)  %>% 
         mutate (ordered_timepoints = interaction(gen,week,rep), gen = NULL, week = NULL, rep=NULL) 
       
       ordered_timepoint_names <- unique(as.character(data_table_unspread$ordered_timepoints))
       data_table <- spread(data_table_unspread, ordered_timepoints, frequency) 
-      data_table <- data_table[,c("variant_name", ordered_timepoint_names)]
+      data_table <- data_table[,c("variant_name", "ref_hiv", "ref_siv", "alt_hiv", "alt_siv", ordered_timepoint_names)]
+      
+      return (data_table)
+      
+    }
+      
+    
+    # output$var_table <- DT::renderDataTable({ 
+    dt_function <- function() { 
+      
+      # this will make variant frequencies colored like a heatmap 
+      breaks <- seq(0, 1, 0.1)
+      blue_colors <- round(seq(255, 125, length.out = length(breaks) + 1), 0) %>%
+      {paste0("rgb(" , . , "," , . , ",255)")}
+      red_colors  <- round(seq(255, 125, length.out = length(breaks) + 1), 0) %>%
+      {paste0("rgb(255," , . , "," , . , ")")}
+      
+      data_table <- prepare_dt()
       
       # create the data table object
       dat <- DT::datatable(data_table, 
@@ -341,65 +403,56 @@ server <- function(input, output) {
                          # columnDefs = list(list(width = '20px', targets = "_all" ))
                        )) %>%
         # the tail here omits first column (variant name) from coloring scheme
-        formatStyle(tail(names(data_table), -1), backgroundColor = styleInterval(brks, clrs))
+        formatStyle(tail(names(data_table), -5), backgroundColor = styleInterval(breaks, blue_colors)) %>%
+        formatStyle(head(tail(names(data_table), -1),4), backgroundColor = styleInterval(breaks, red_colors))
         return(dat)
-     })
+     }
     
     output$var_plot <- renderPlot(scatter_plot_function())
-    
-    scatter_plot_function = function(){
-      if (input$one_plot){
-        # TODO: color by something
-        ggplot(data=rv$data[!is.na(rv$data$frequency),], aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep) ) +
-          # geom_point() +
-          geom_line(size=0.5, alpha=0.5) 
-      }
-      else
-      {
-        # data_to_plot <- rv$data %>% arrange(as.numeric(as.character(position)))
-        data_to_plot <- rv$data 
-                                                   
-        # Facet wrap orders facet by the variable you specify, and it can be a bit tricky to change that order
-        # see: 
-        # https://kohske.wordpress.com/2010/12/29/faq-how-to-order-the-factor-variables-in-ggplot2/
-        # for help
-        data_to_plot$variant_name <- reorder(data_to_plot$variant_name, as.numeric(as.character(data_to_plot$position)))
-        data_to_plot$variant_name_no_position <- reorder(data_to_plot$variant_name_no_position, as.numeric(as.character(data_to_plot$position)))
-        
-        gdtp <- data_to_plot %>% group_by(variant_name) %>% summarise (maxpos=max(position))
-        print (gdtp)
-        # ggplot(data=rv$data[!is.na(rv$data$frequency),], aes(x=plot_week, y= frequency, group=interaction(rep, position), color=rep)) +
-        
-        ggplot(data=data_to_plot, aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep, order=as.numeric(as.character(position)))) +
-          geom_point(shape=20) +
-          geom_line(linetype=3) + 
-          geom_line(data=filter(data_to_plot, gen == 1)) + 
-          geom_line(data=filter(data_to_plot, gen == 2)) +
-          # geom_smooth() +
-          # theme(legend.position="none", strip.text = element_text(size=12) ) +  #We don't want a giant legend with each position #
-          
-          # theme_classic() +
-          
-          xlab("week post initial infection") +
-          ylab("variant frequency") +
-          # scale_y_log10() +
-          # coord_fixed(ratio=20) + 
-          facet_wrap(~variant_name_no_position) +
-          # facet_wrap(~variant_name) +
-          theme_tufte() + 
-          theme(text = element_text(size=12, family="sans"),
-                # legend.position="none",
-                axis.line=element_line(),
-                strip.text=element_text(size=10, family="sans", colour = "grey50")) +
-                annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
-                annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf)+
-                # scale_x_continuous( breaks=c(0,0.5,1)) + 
-                scale_y_continuous(breaks=c(0,0.5,1), labels=c("0", "0.5", "1"))
-                # scale_x_continuous(limits=c(10,35)) + scale_y_continuous(limits=c(0,400))
-                # strip.background = element_blank()) 
-          
-      }
-    }
+     scatter_plot_function = function(){
+       # data_to_plot <- rv$data %>% arrange(as.numeric(as.character(position)))
+       data_to_plot <- rv$data 
+       
+       # Facet wrap orders facet by the variable you specify, and it can be a bit tricky to change that order
+       # see: 
+       # https://kohske.wordpress.com/2010/12/29/faq-how-to-order-the-factor-variables-in-ggplot2/
+       # for help
+       data_to_plot$variant_name <- reorder(data_to_plot$variant_name, as.numeric(as.character(data_to_plot$position)))
+       data_to_plot$variant_name_no_position <- reorder(data_to_plot$variant_name_no_position, as.numeric(as.character(data_to_plot$position)))
+       
+       gdtp <- data_to_plot %>% group_by(variant_name) %>% summarise (maxpos=max(position))
+       print (gdtp)
+       # ggplot(data=rv$data[!is.na(rv$data$frequency),], aes(x=plot_week, y= frequency, group=interaction(rep, position), color=rep)) +
+       
+       ggplot(data=data_to_plot, aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep, order=as.numeric(as.character(position)))) +
+         geom_point(shape=20) +
+         geom_line(linetype=3) + 
+         geom_line(data=filter(data_to_plot, gen == 1)) + 
+         geom_line(data=filter(data_to_plot, gen == 2)) +
+         # geom_smooth() +
+         # theme(legend.position="none", strip.text = element_text(size=12) ) +  #We don't want a giant legend with each position #
+         
+         # theme_classic() +
+         
+         xlab("week post initial infection") +
+         ylab("variant frequency") +
+         # scale_y_log10() +
+         # coord_fixed(ratio=20) + 
+         facet_wrap(~variant_name_no_position) +
+         # facet_wrap(~variant_name) +
+         theme_tufte() + 
+         theme(text = element_text(size=12, family="sans"),
+               # legend.position="none",
+               axis.line=element_line(),
+               strip.text=element_text(size=10, family="sans", colour = "grey50")) +
+         annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+         annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf)+
+         # scale_x_continuous( breaks=c(0,0.5,1)) + 
+         scale_y_continuous(breaks=c(0,0.5,1), labels=c("0", "0.5", "1"))
+       # scale_x_continuous(limits=c(10,35)) + scale_y_continuous(limits=c(0,400))
+       # strip.background = element_blank()) 
+       
+     }
     
     output$genome_plot <- renderPlot(genome_plot_function())
     
@@ -464,6 +517,13 @@ server <- function(input, output) {
         }
         ggsave(file, plot = genome_plot_function(), device = "pdf", dpi=300, height=2.5, width=6, units="in")
       })
+ 
+    output$download_data_table <- downloadHandler(
+      filename = 'data_table.tsv',
+      content = function(file) {
+        write.table(prepare_dt(), file, sep='\t', col.names = NA)
+      }
+    )
  
 } # end server function
 
