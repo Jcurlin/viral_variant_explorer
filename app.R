@@ -9,12 +9,19 @@ library(ggplot2)
 library(DT)
 library(broom)
 library(ggthemes)
+library(readxl)
 # library(ggnewscale)
 
 # read in input datasets
 lb_df_in <- read.delim("data/SIVcpzLB715_variant_table.txt", sep="\t", header=TRUE)
 ek_df_in <- read.delim("data/SIVcpzEK505_variant_table.txt", sep="\t", header=TRUE)
 mb_df_in <- read.delim("data/SIVcpzMB897_variant_table.txt", sep="\t", header=TRUE)
+sm_df_in <- read.delim("data/SIVsm_variant_table.txt", sep="\t", header=TRUE)
+mac_df_in <- read.delim("data/SIVmac239_variant_table.txt", sep="\t", header=TRUE)
+hu_df_in <- read.delim("data/SIVhu_variant_table.txt", sep="\t", header=TRUE)
+b670_df_in <- read.delim("data/SIVB670_variant_table.txt", sep="\t", header=TRUE)
+
+# read in data related to frequencies of amino acids in HIV vs. SIV
 ppm_df_in <- read.delim("data/all_ppm_data.txt", sep="\t", header=TRUE)
 map_df_in <- read.delim("data/protein_msa_mapping.txt", sep="\t", header=TRUE)
 
@@ -31,47 +38,21 @@ ppm_df_spread <- spread(ppm_df_in, virus, frequency)
 # join tables to create df by strain/position/amino acid & frequencies in HIV & SIV
 ppm_df <- right_join(map_df_in, ppm_df_spread) 
 
-# getrid of water control datasets
-lb_df_in <- lb_df_in %>% select(-contains("Water"))
-ek_df_in <- ek_df_in %>% select(-contains("Water"))
-mb_df_in <- mb_df_in %>% select(-contains("Water"))
+# read in metadata.  For each dataset, this is the virus, the generation, the week, and the replicate (A or B)
+metadata <- read_excel("data/metadata.xlsx")
 
 # convert & tidy datasets
 pre_process_dataset <- function(df){
+  # get rid of water control datasets
+  df <- df %>% select(-contains("Water"))
+  
   df <- df  %>% gather(key = dataset_id, value = frequency, 7:ncol(df))
   
   # parse info out of dataset IDs
-  df$dataset_id <- str_replace_all(df$dataset_id, "Stock_virus", "stock_W0")
-  df$week <- str_match(df$dataset_id, "_W([0-9]{1,2})_")[,2]
-  df$gen <- str_match(df$dataset_id, "_G([12])_")[,2]
-  # replace gen "NA" values for stock with 0
-  df$gen[is.na(df$gen)] <- 0
+  # df$dataset_id <- str_replace_all(df$dataset_id, "Stock_virus", "stock_W0")
   
-  mice <- str_match(df$dataset_id, "G[12]_([J0-9]{4,5})_W[0-9]{1,2}_")[,2]
-  
-  # rename replicate A/B from mouse IDs 
-  mice <- str_replace_all(mice, "J2626", "A")
-  mice <- str_replace_all(mice, "J2627", "B")
-  
-  mice <- str_replace_all(mice, "J2778", "A")
-  mice <- str_replace_all(mice, "J2779", "B")
-  
-  mice <- str_replace_all(mice, "J2663", "A")
-  mice <- str_replace_all(mice, "J2666", "B")
-  
-  mice <- str_replace_all(mice, "2275", "A")
-  mice <- str_replace_all(mice, "J2796", "B")
-  
-  mice <- str_replace_all(mice, "2139", "A")
-  mice <- str_replace_all(mice, "2143", "B")
-  
-  mice <- str_replace_all(mice, "2263", "A")
-  mice <- str_replace_all(mice, "2264", "B")
-  
-  df$rep <- mice
-  
-  # replace rep "NA" values for stock with A
-  df$rep[is.na(df$rep)] <- "A"
+  # do a left join with metadata to 
+  df <- left_join(df, metadata, by="dataset_id")
   
   # replace rep "envelope" values for cds with "env"
   df$cds <- str_replace(df$cds, "envelope", "env")
@@ -98,13 +79,18 @@ pre_process_dataset <- function(df){
   
   # this allows plotting on a quasi-time x-axis, where generation 2 starts at week #30
   plot_week <- function(gen,week){
-    ifelse(gen==2, 30+as.numeric(week), as.numeric(week))
+    weeks_per_gen <- 30
+    # ifelse(gen==0, 0, 30+as.numeric(week), as.numeric(week))
+    ifelse(gen==0, 0, (week + (weeks_per_gen * (as.integer(gen)-1))))
   }
   df$plot_week <- plot_week(df$gen, df$week)
   
   # now we need to create pseudo data points with plot_week = 30, and frequency = NA 
   # this will create a discontinuity in the plot to accomodate for the inter-generational
   # bottleneck...
+  #
+  # TODO: do this for all inter-generation transitions
+  #
   add_pseudo_timepoint <- 0
   if (add_pseudo_timepoint) {
     # make pseudo timepoint rows
@@ -120,11 +106,15 @@ pre_process_dataset <- function(df){
   
   return (df)
 }
-  
+
 # convert datasets to long (tidy) format  
 lb_df_in <- pre_process_dataset(lb_df_in)
 ek_df_in <- pre_process_dataset(ek_df_in)
 mb_df_in <- pre_process_dataset(mb_df_in)
+sm_df_in <- pre_process_dataset(sm_df_in)
+mac_df_in <- pre_process_dataset(mac_df_in)
+hu_df_in <- pre_process_dataset(hu_df_in)
+b670_df_in <- pre_process_dataset(b670_df_in)
   
 # merge frequency datasets with ppm data (add ppm data)
 
@@ -144,6 +134,7 @@ mb_df_in <- left_join(mb_df_in, filter(ppm_df, siv_strain == "MB897"), by = c("c
 mb_df_in <- left_join(mb_df_in, filter(ppm_df, siv_strain == "MB897"), by = c("cds" = "gene", "codon_number" = "native_position", "alt_aa" = "residue"))  %>% 
   select (-siv_strain, alt_hiv=hiv, alt_siv=siv) 
 
+# TODO: this for SIVsm, etc...
 
 
 # setup UI and interactive inputs
@@ -200,7 +191,12 @@ ui <- dashboardPage(
       radioButtons("dataset_input", "Dataset:",
                  c("LB715" = "lb",
                    "EK505" = "ek",
-                   "MB897" = "mb"), inline = TRUE)
+                   "MB897" = "mb",
+                   "B670" = "b670",
+                   "Hu" = "hu",
+                   "Mac239" = "mac",
+                   "SM" = "sm"), inline = TRUE)
+      
                    # "All" = "all" ), inline = TRUE)
     ),
     fluidRow(plotOutput("var_plot")),
@@ -217,10 +213,14 @@ server <- function(input, output) {
   # this reaction to switching datasets
   observeEvent(input$dataset_input, {
     rv$data_in <- switch(input$dataset_input,
+                         sm = sm_df_in,
                          lb = lb_df_in,
                          ek = ek_df_in,
                          mb = mb_df_in,
-                         all = rbind(lb_df_in, ek_df_in, mb_df_in),
+                         hu = hu_df_in,
+                         mac = mac_df_in,
+                         b670 = b670_df_in,
+                         all = rbind(sm_df_in, lb_df_in, ek_df_in, mb_df_in),
                          lb_df_in)
   })
   
@@ -344,8 +344,11 @@ server <- function(input, output) {
     
     # filter variants based on difference between frequency of alternate allele in HIV & SIV 
     # compendium alignments
-    filtered_df <- filtered_df %>% 
-      filter(alt_hiv >= input$min_alt_hiv)
+    if("alt_hiv" %in% colnames(filtered_df))
+    {
+      filtered_df <- filtered_df %>% 
+        filter(alt_hiv >= input$min_alt_hiv)
+    }
     
     n_var <-nrow(filtered_df %>% group_by(variant_name) %>% summarise())
     print (paste(n_var, "variants post min alt siv"))
@@ -366,18 +369,41 @@ server <- function(input, output) {
     
     prepare_dt <- function(){
       
-      # This code collects the data into a table (tidy long -> wide format) and outputs in the order of timepoint collection
-      data_table_unspread <- rv$data %>% filter(!is.na(frequency)) %>%
-        # select (position, variant_name, gen, week, rep, frequency) %>% 
-        select (position, variant_name, gen, week, rep, frequency, ref_hiv, ref_siv, alt_hiv, alt_siv) %>% 
-        arrange(gen, as.numeric(week), rep)  %>% 
-        mutate (ordered_timepoints = interaction(gen,week,rep), gen = NULL, week = NULL, rep=NULL) 
-      
-      ordered_timepoint_names <- unique(as.character(data_table_unspread$ordered_timepoints))
-      data_table <- spread(data_table_unspread, ordered_timepoints, frequency) 
-      data_table <- data_table[,c("variant_name", "ref_hiv", "ref_siv", "alt_hiv", "alt_siv", ordered_timepoint_names)]
-      
-      return (data_table)
+      if("alt_hiv" %in% colnames(rv$data))
+      {
+        # This code collects the data into a table (tidy long -> wide format) and outputs in the order of timepoint collection
+        data_table_unspread <- rv$data %>% filter(!is.na(frequency)) %>%
+          # select (position, variant_name, gen, week, rep, frequency) %>% 
+          select (position, variant_name, gen, week, rep, frequency, ref_hiv, ref_siv, alt_hiv, alt_siv) %>% 
+          arrange(gen, as.numeric(week), rep)  %>% 
+          mutate (ordered_timepoints = interaction(gen,week,rep), gen = NULL, week = NULL, rep=NULL) 
+        
+        ordered_timepoint_names <- unique(as.character(data_table_unspread$ordered_timepoints))
+        data_table <- spread(data_table_unspread, ordered_timepoints, frequency) 
+        data_table <- data_table[,c("variant_name", "ref_hiv", "ref_siv", "alt_hiv", "alt_siv", ordered_timepoint_names)]
+        return (data_table)
+      }
+      else
+      {
+        # ref/alt frequencies in HIV/SIV sequences not available (yet) for this virus
+        
+        # This code collects the data into a table (tidy long -> wide format) and outputs in the order of timepoint collection
+        data_table_unspread <- rv$data %>% filter(!is.na(frequency)) %>%
+          # select (position, variant_name, gen, week, rep, frequency) %>% 
+          select (position, variant_name, gen, week, rep, frequency) %>% 
+          arrange(as.integer(gen), as.numeric(week), rep)  %>% 
+          mutate (ordered_timepoints = interaction(gen,week,rep), gen = NULL, week = NULL, rep=NULL) 
+        
+        print ("here 2")
+        # print (data_table_unspread[,c("ordered_timepoints", "position")])
+        print (slice(data_table_unspread, 965:975))
+        print ("here 3")
+        
+        ordered_timepoint_names <- unique(as.character(data_table_unspread$ordered_timepoints))
+        data_table <- spread(data_table_unspread, ordered_timepoints, frequency) 
+        data_table <- data_table[,c("variant_name", ordered_timepoint_names)]
+        return (data_table)
+      }
       
     }
       
@@ -414,6 +440,14 @@ server <- function(input, output) {
        # data_to_plot <- rv$data %>% arrange(as.numeric(as.character(position)))
        data_to_plot <- rv$data 
        
+       # TODO: setup so you can highlight based on selections in table (or by gene, etc.)
+       # highlight values selected (filtered) in DataTable
+       # input$pct_id_table_rows_all is a vector index of the rv$data df 
+       # that indicates which rows are actually selected in the DataTable
+       # selected_rows <- input$pct_id_table_rows_all
+       # selected_rows <- input$var_table_rows_selected
+       # data_to_plot <- rv$data[selected_rows, ]
+       
        # Facet wrap orders facet by the variable you specify, and it can be a bit tricky to change that order
        # see: 
        # https://kohske.wordpress.com/2010/12/29/faq-how-to-order-the-factor-variables-in-ggplot2/
@@ -427,9 +461,14 @@ server <- function(input, output) {
        
        ggplot(data=data_to_plot, aes(x=plot_week, y= frequency, group=interaction(position, rep), color=rep, order=as.numeric(as.character(position)))) +
          geom_point(shape=20) +
+         
+         # TODO: replicates are confused...
+         # TODO: discontinuos lines between generations
+         
          geom_line(linetype=3) + 
-         geom_line(data=filter(data_to_plot, gen == 1)) + 
-         geom_line(data=filter(data_to_plot, gen == 2)) +
+         # geom_line(data=filter(data_to_plot, gen == 1)) + 
+         # geom_line(data=filter(data_to_plot, gen == 2)) +
+         
          # geom_smooth() +
          # theme(legend.position="none", strip.text = element_text(size=12) ) +  #We don't want a giant legend with each position #
          
