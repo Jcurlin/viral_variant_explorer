@@ -78,10 +78,13 @@ pre_process_dataset <- function(df){
   df <- mutate(df, timepoint = paste0("G", gen, "W", week, rep))
   
   # this allows plotting on a quasi-time x-axis, where generation 2 starts at week #30
+  # TODO: use actual generation/week plotting scheme
+  #       or possibly the actual number of weeks for particular generations
   plot_week <- function(gen,week){
-    weeks_per_gen <- 30
+    weeks_per_gen <- 40
     # ifelse(gen==0, 0, 30+as.numeric(week), as.numeric(week))
     ifelse(gen==0, 0, (week + (weeks_per_gen * (as.integer(gen)-1))))
+    # ifelse(gen==0, 0, str_c("G", gen, "-", week)) 
   }
   df$plot_week <- plot_week(df$gen, df$week)
   
@@ -394,10 +397,8 @@ server <- function(input, output) {
           arrange(as.integer(gen), as.numeric(week), rep)  %>% 
           mutate (ordered_timepoints = interaction(gen,week,rep), gen = NULL, week = NULL, rep=NULL) 
         
-        print ("here 2")
         # print (data_table_unspread[,c("ordered_timepoints", "position")])
         print (slice(data_table_unspread, 965:975))
-        print ("here 3")
         
         ordered_timepoint_names <- unique(as.character(data_table_unspread$ordered_timepoints))
         data_table <- spread(data_table_unspread, ordered_timepoints, frequency) 
