@@ -74,10 +74,10 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVmac239_2nd_Generation_Mouse_J2
 1294	gag	G	418	R	N		0.05	0.92	0.83																												
 1330	gag	R	430	*	N														0.66																		
 1334	gag	Q	431	R	N																																0.06
-1335	gag	Q	431	Q	S																			0.58						0.12							
 1335	gag	Q	431	H	N																																0.12
-1336	gag	A	432	T	N																									0.08							
+1335	gag	Q	431	Q	S																			0.58						0.12							
 1336	gag	A	432	S	N		0.12																														
+1336	gag	A	432	T	N																									0.08							
 1337	gag	A	432	E	N																			0.06													
 1338	gag	A	432	A	S														0.05					0.07													
 1338	gag	A	432	A	S		0.14	0.92	0.83																					0.20							
@@ -90,16 +90,16 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVmac239_2nd_Generation_Mouse_J2
 1348	gag	G	436	C	N		0.13																														
 1350	gag	G	436	G	S																													0.11			
 1352	gag	L	437	P	N		0.10											0.09	0.07							0.12	0.06								0.05		
-1354	gag	G	438	C	N		0.09											0.08									0.09					0.07					0.07
 1354	gag	G	438	S	N																						0.13										
+1354	gag	G	438	C	N		0.09											0.08									0.09					0.07					0.07
 1356	gag	G	438	G	S													0.08																			
 1359	gag	P	439	P	S		0.08								0.08			0.10								0.07											0.09
 1365	gag	G	441	G	S		0.16				0.30		0.24	0.28	0.19		0.12	0.26	0.10	0.09						0.14	0.09		0.15	0.06		0.09		0.08	0.08		0.15
 1371	gag	K	443	K	S													0.08																			
 1376	gag	R	445	P	N		0.12				0.18							0.10								0.12			0.13			0.08			0.07		0.06
 1378	gag	N	446	H	N		0.10											0.10								0.11								0.06			
-1380	gag	N	446	K	N									0.11				0.08																			
 1380	gag	N	446	N	S																						0.11										
+1380	gag	N	446	K	N									0.11				0.08																			
 1383	gag	F	447	F	S		0.08							0.12	0.13			0.11		0.10												0.08		0.11			0.06
 1387	gag	M	449	L	N		0.13				0.23		0.21	0.17	0.15			0.21								0.10			0.15		0.07	0.08		0.20	0.06		0.11
 1388	gag	M	449	T	N																					0.07											
@@ -469,8 +469,8 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVmac239_2nd_Generation_Mouse_J2
 6439	env	A	282	A	S			0.07																													
 6441	env	E	283	G	N							0.08	0.25	0.22																							
 6466	env	H	291	Q	N							0.40	0.05			0.36																					
-6468	env	G	292	A	N	0.20				0.06	0.44				0.63						0.30	0.51	0.69		0.06	0.07					0.20	0.87	0.46		0.22	0.09	
 6468	env	G	292	D	N									0.10													0.33										
+6468	env	G	292	A	N	0.20				0.06	0.44				0.63						0.30	0.51	0.69		0.06	0.07					0.20	0.87	0.46		0.22	0.09	
 6471	env	R	293	K	N	0.05		0.06																													
 6472	env	R	293	R	S																									0.08							
 6473	env	D	294	N	N		0.35	0.77	0.51	0.05											0.07							0.07	0.07	0.07				0.09	0.45	0.86	
@@ -521,8 +521,8 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVmac239_2nd_Generation_Mouse_J2
 6934	env	N	447	N	S														0.20																		
 6970	env	C	459	C	S								0.06																								
 6994	env	I	467	M	N																									0.06							
-7004	env	D	471	N	N																		0.05														
 7004	env	D	471	Y	N												0.05																				
+7004	env	D	471	N	N																		0.05														
 7013	env	D	474	N	N														0.20																		
 7021	env	N	476	N	S							0.09																									
 7029	env	N	479	S	N	0.51	0.31	0.15	0.51	0.63	0.27				0.11					0.33	0.23	0.06		0.58	0.52	0.58	0.33	0.41	0.39	0.65	0.07	0.16		0.97	0.62	0.15	
@@ -583,8 +583,8 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVmac239_2nd_Generation_Mouse_J2
 7842	rev	R	39	R	S																													0.07			
 7873	rev	L	50	F	N																			0.07									0.77				
 7892	rev	R	56	K	N																						0.05										
-7921	rev	D	66	Y	N										0.20		0.09																				
 7921	rev	D	66	N	N	0.06				0.06			0.05				0.09											0.06									
+7921	rev	D	66	Y	N										0.20		0.09																				
 7947	rev	Q	74	Q	S						0.05																				0.08						
 7963	rev	A	80	T	N						0.20	0.06																			0.41						
 7973	rev	S	83	N	N									0.14																							
@@ -646,15 +646,15 @@ position	cds	ref_aa	codon_number	alt_aa	N_or_S	SIVmac239_2nd_Generation_Mouse_J2
 8582	nef	G	172	G	S																						0.05										
 8607	nef	N	181	D	N									0.21																							
 8615	nef	S	183	S	S	0.44														0.12					0.31	0.40											
-8644	nef	Y	193	S	N							0.06																									
 8644	nef	Y	193	C	N	1.00	1.00	1.00	1.00	1.00	1.00	0.82	1.00	1.00	1.00		0.86	0.98		1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	0.99	1.00	1.00	
+8644	nef	Y	193	S	N							0.06																									
 8651	nef	M	195	I	N																						0.05										
 8658	nef	A	198	P	N										0.32																						
 8708	nef	K	214	K	S						0.20																				0.50						
 8716	nef	P	217	Q	N															0.05																	
 8726	nef	A	220	A	S						0.06																										
-8727	nef	Y	221	H	N								0.07	0.12			0.08																				
 8727	nef	Y	221	N	N	1.00	1.00	1.00	1.00	0.98	1.00		0.35	0.62	1.00		0.05	0.73		0.88	0.98	1.00	1.00	0.58	0.98	0.98	1.00	0.99	1.00	0.98	1.00	1.00	0.99	0.99	1.00	1.00	
+8727	nef	Y	221	H	N								0.07	0.12			0.08																				
 8728	nef	Y	221	C	N												0.05																				
 8732	nef	T	222	T	S																							0.07	0.13								
 8759	nef	E	231	E	S		0.76	0.90	0.94	0.24																	0.55	0.27	0.26	0.16							
